@@ -1,5 +1,5 @@
 # Python
-## 🔹 1. History of Python  
+##  1. History of Python  
 
 - Created by **Guido van Rossum** in the **late 1980s** at **CWI (Netherlands)**.  
 - Name comes from **“Monty Python’s Flying Circus”** (a British comedy show).  
@@ -11,11 +11,11 @@
 - **Now** → Latest versions are in the Python 3.x series.  
 
 ---
-# 🔤 ASCII vs Unicode
+#  ASCII vs Unicode
 
 ---
 
-## ✅ ASCII (American Standard Code for Information Interchange)
+## ASCII (American Standard Code for Information Interchange)
 
 - Developed in the **1960s**.  
 - Represents characters using **7 bits** → Maximum **128 characters**.  
@@ -152,7 +152,7 @@ print("😊")            # Emoji
 
 
 
-## 🔹 2. Roots of Python  
+## 2. Roots of Python  
 
 Python was influenced by:  
 - **ABC Language** → Simplicity.  
@@ -165,7 +165,7 @@ Philosophy:
 - **Readability counts.**  
 - **Practicality beats purity.**  
  
-## 🔹 3. What is Python?  
+## 3. What is Python?  
 
 Python is a **high-level, interpreted, general-purpose programming language** that emphasizes **code readability** and **developer productivity**.  
 
@@ -185,7 +185,7 @@ It supports **Object-Oriented, Functional, and Procedural Programming**.
 ---
 
 
-## 🔹 4. Why Python is Popular Today?
+## 4. Why Python is Popular Today?
 
 * Beginner-friendly.
 * Huge demand in **AI, ML, Data Science**.
@@ -193,7 +193,7 @@ It supports **Object-Oriented, Functional, and Procedural Programming**.
 * Used by **Google, Netflix, NASA, YouTube, Instagram**.
 
 ---
-## 🔹 5. Advantages of Python  
+## 5. Advantages of Python  
 
 ✅ **Easy to Learn & Read** (syntax close to English).  
 ✅ **Cross-platform** (Windows, Linux, macOS).  
@@ -203,6 +203,114 @@ It supports **Object-Oriented, Functional, and Procedural Programming**.
 ✅ **Integration Support** with C, C++, Java, .NET.  
 ✅ **Rapid Development** – fast prototyping.  
 
+Perfect question Priya 👏 — these are some of the most important Python libraries and frameworks! Let me explain them **clearly with their uses** so you can add this to your notes.
+
+---
+
+# Python Libraries & Their Uses
+
+### 1. **NumPy** (Numerical Python)
+
+* **Use**: Handling **numerical data, arrays, and mathematical operations**.
+* Provides fast **multi-dimensional arrays**.
+* Used for **linear algebra, statistics, scientific computing**.
+* Example: Weather data analysis, matrix calculations, image processing.
+
+```python
+import numpy as np
+arr = np.array([1, 2, 3, 4])
+print(arr.mean())  # Average of array
+```
+
+---
+
+### 2. **Pandas**
+
+* **Use**: Working with **structured data** (tables, CSV, Excel, SQL).
+* Provides **DataFrame** (rows & columns like Excel).
+* Easy **data cleaning, analysis, and manipulation**.
+* Example: Stock market analysis, student marks data.
+
+```python
+import pandas as pd
+data = {'Name': ['Priya', 'Rani'], 'Marks': [90, 85]}
+df = pd.DataFrame(data)
+print(df)
+```
+
+---
+
+### 3. **TensorFlow**
+
+* **Use**: **Deep Learning & Machine Learning** library.
+* Created by **Google**.
+* Builds and trains **neural networks** (AI models).
+* Example: Image recognition, speech recognition, chatbot AI.
+
+```python
+import tensorflow as tf
+print(tf.__version__)  # Check version
+```
+
+---
+
+### 4. **Django**
+
+* **Use**: High-level **Web Development Framework**.
+* Used for **large, complex websites**.
+* Has built-in features: authentication, database handling, admin panel.
+* Example: Instagram, Pinterest use Django.
+
+---
+
+### 5. **Flask**
+
+* **Use**: Lightweight **Web Development Framework**.
+* Best for **small/medium web apps & APIs**.
+* Flexible, easy to learn compared to Django.
+* Example: Simple portfolio websites, REST APIs.
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello, Priya!"
+
+app.run()
+```
+
+---
+
+### 6. **Scikit-learn**
+
+* **Use**: **Machine Learning algorithms & data science**.
+* Provides ready-to-use algorithms: classification, regression, clustering.
+* Works well with **NumPy & Pandas**.
+* Example: Predicting house prices, spam email detection.
+
+```python
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+```
+
+---
+
+#  Quick Comparison Table
+
+| Library/Framework | Field        | Main Use                            |
+| ----------------- | ------------ | ----------------------------------- |
+| **NumPy**         | Math/Science | Fast arrays, numerical computing    |
+| **Pandas**        | Data Science | DataFrames, data cleaning, analysis |
+| **TensorFlow**    | AI/ML        | Deep learning, neural networks      |
+| **Django**        | Web          | Large-scale web apps                |
+| **Flask**         | Web          | Small apps, APIs, flexible sites    |
+| **Scikit-learn**  | ML/Data      | Ready-to-use ML algorithms          |
+
+---
+
+
 Example:  
 ```python
 for i in range(5):
@@ -211,7 +319,7 @@ for i in range(5):
 
 ---
 
-## 🔹 6. Disadvantages of Python
+##  6. Disadvantages of Python
 
 ⚠️ **Slower Execution** (interpreted, not compiled).
 ⚠️ **High Memory Usage** (not good for embedded systems).
