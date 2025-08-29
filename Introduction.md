@@ -203,9 +203,6 @@ It supports **Object-Oriented, Functional, and Procedural Programming**.
 ✅ **Integration Support** with C, C++, Java, .NET.  
 ✅ **Rapid Development** – fast prototyping.  
 
-Perfect question Priya 👏 — these are some of the most important Python libraries and frameworks! Let me explain them **clearly with their uses** so you can add this to your notes.
-
----
 
 # Python Libraries & Their Uses
 
@@ -222,8 +219,6 @@ arr = np.array([1, 2, 3, 4])
 print(arr.mean())  # Average of array
 ```
 
----
-
 ### 2. **Pandas**
 
 * **Use**: Working with **structured data** (tables, CSV, Excel, SQL).
@@ -238,8 +233,6 @@ df = pd.DataFrame(data)
 print(df)
 ```
 
----
-
 ### 3. **TensorFlow**
 
 * **Use**: **Deep Learning & Machine Learning** library.
@@ -252,7 +245,6 @@ import tensorflow as tf
 print(tf.__version__)  # Check version
 ```
 
----
 
 ### 4. **Django**
 
@@ -261,7 +253,6 @@ print(tf.__version__)  # Check version
 * Has built-in features: authentication, database handling, admin panel.
 * Example: Instagram, Pinterest use Django.
 
----
 
 ### 5. **Flask**
 
@@ -281,8 +272,6 @@ def hello():
 app.run()
 ```
 
----
-
 ### 6. **Scikit-learn**
 
 * **Use**: **Machine Learning algorithms & data science**.
@@ -295,7 +284,6 @@ from sklearn.linear_model import LinearRegression
 model = LinearRegression()
 ```
 
----
 
 #  Quick Comparison Table
 
@@ -308,7 +296,6 @@ model = LinearRegression()
 | **Flask**         | Web          | Small apps, APIs, flexible sites    |
 | **Scikit-learn**  | ML/Data      | Ready-to-use ML algorithms          |
 
----
 
 
 Example:  
@@ -317,7 +304,6 @@ for i in range(5):
     print("Hello")
 ````
 
----
 
 ##  6. Disadvantages of Python
 
@@ -326,6 +312,4 @@ for i in range(5):
 ⚠️ **Weak Mobile Development Support** (not widely used for Android/iOS).
 ⚠️ **Global Interpreter Lock (GIL)** limits multi-threading.
 ⚠️ **Not Low-Level** (unsuitable for OS kernels, device drivers).
-
----
 
