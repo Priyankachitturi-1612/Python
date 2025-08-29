@@ -205,8 +205,6 @@ print(p, q, r)
 
 * **Basic types:** `int`, `float`, `str`, `bool`.
 * **Collections:** `list`, `tuple`, `set`, `dict`.
-* Got it Priya 👍 You’re asking about **basic data types in Python** like `str`, `int`, `bool`, `float`. Let’s go step by step so you can use this in your GitHub notes.
-
 
 #  Python Basic Data Types
 
