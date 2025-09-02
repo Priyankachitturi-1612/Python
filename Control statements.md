@@ -359,13 +359,135 @@ else:
     # executes if none of the above are True
 ```
 
-Perfect Priya 🌸 You want me to **go deeper into each use case** of conditional statements. Let’s expand every point clearly with explanation + code example + real-life analogy.
+
+## ✅ Basic Programs Using Conditional Statements
+
+### 1. **Check if a number is positive or negative**
+
+```python
+num = -7
+if num > 0:
+    print("Positive")
+else:
+    print("Negative")
+```
+
+
+### 2. **Check if a number is even or odd**
+
+```python
+num = 12
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+```
+
+
+### 3. **Find the largest of two numbers**
+
+```python
+a, b = 15, 25
+if a > b:
+    print("a is larger")
+else:
+    print("b is larger")
+```
+
+
+### 4. **Find the largest of three numbers**
+
+```python
+a, b, c = 10, 25, 15
+if a >= b and a >= c:
+    print("a is largest")
+elif b >= a and b >= c:
+    print("b is largest")
+else:
+    print("c is largest")
+```
+
+
+### 5. **Check if a year is a leap year**
+
+```python
+year = 2024
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("Leap Year")
+else:
+    print("Not a Leap Year")
+```
+
+
+### 6. **Check eligibility to vote**
+
+```python
+age = 18
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible to vote")
+```
+
+
+### 7. **Grade based on marks**
+
+```python
+marks = 72
+if marks >= 90:
+    print("Grade A")
+elif marks >= 75:
+    print("Grade B")
+elif marks >= 50:
+    print("Grade C")
+else:
+    print("Fail")
+```
 
 ---
+
+### 8. **Check if character is vowel or consonant**
+
+```python
+ch = 'e'
+if ch.lower() in "aeiou":
+    print("Vowel")
+else:
+    print("Consonant")
+```
+
+
+### 9. **Simple calculator (using if-elif)**
+
+```python
+a, b, op = 10, 5, '+'
+
+if op == '+':
+    print(a + b)
+elif op == '-':
+    print(a - b)
+elif op == '*':
+    print(a * b)
+elif op == '/':
+    print(a / b)
+else:
+    print("Invalid Operator")
+```
+
+### 10. **Check if a number is divisible by both 3 and 5**
+
+```python
+num = 15
+if num % 3 == 0 and num % 5 == 0:
+    print("Divisible by 3 and 5")
+else:
+    print("Not Divisible by both")
+```
+
 
 # 🔹 **Uses of Conditional Statements in Python**
 
----
+
 
 ## **1. Decision Making**
 
@@ -449,38 +571,10 @@ else:
 
 **Real-life analogy:** In cricket, “If runs ≥ 300 → team likely to win, else tough situation.”
 
----
 
-## **5. Data Processing (Filtering / Categorization)**
 
-When working with large datasets, conditions help to **filter or classify data**.
 
-**Code:**
-
-```python
-numbers = [10, -5, 20, -8, 0]
-
-positive = []
-negative = []
-
-for n in numbers:
-    if n >= 0:
-        positive.append(n)
-    else:
-        negative.append(n)
-
-print("Positive numbers:", positive)
-print("Negative numbers:", negative)
-```
-
-**Real-life analogy:** Banks categorize customers:
-
-* If balance > 1,00,000 → Premium customer
-* Else → Normal customer
-
----
-
-## **6. Security Checks (Authentication & Authorization)**
+## **5. Security Checks (Authentication & Authorization)**
 
 Many systems use conditions to **check identity or permissions.**
 
@@ -606,78 +700,9 @@ if num > 0:
 ```
 
 
-#### **(e) Short-hand if (Single-line if)**
-
-```python
-x = 5
-if x > 0: print("Positive number")
-```
-
-
-#### **(f) Short-hand if-else (Ternary Operator)**
-
-```python
-x = 10
-result = "Even" if x % 2 == 0 else "Odd"
-print(result)
-```
-
-
-#### **(g) Using Logical Operators with if**
-
-```python
-age = 20
-citizen = True
-if age >= 18 and citizen:
-    print("Eligible to vote")
-```
-
-
-#### **(h) Using Membership / Identity Operators**
-
-```python
-name = "Priya"
-if "i" in name:
-    print("Contains i")
-```
-
-```python
-x = None
-if x is None:
-    print("x is None type")
-```
-
-
-### **5. Real Life Example**
-
-Login system:
-
-```python
-username = "Priya"
-password = "1234"
-
-user = input("Enter username: ")
-pwd = input("Enter password: ")
-
-if user == username and pwd == password:
-    print("Login successful!")
-else:
-    print("Login failed!")
-```
-
-
-Conditional statements are the **decision-making backbone** of any program. They can be used in **simple, nested, or shorthand forms** and combined with operators (`and`, `or`, `not`, `in`, `is`) for powerful logic.
 
 
 # What is a loop?
-
-A loop lets you **repeat** a block of code multiple times.
-Python has two primary loops:
-
-1. **`for` loop** — iterate over the items of an *iterable* (list, string, range, dict, file, generator, etc.).
-2. **`while` loop** — repeat *as long as a condition stays True*.
-
-Python also has loop controls: **`break`**, **`continue`**, **`pass`**, and the special **`else` on loops**.
 
 
 # 1) `for` loop — iterate over iterables
@@ -724,80 +749,109 @@ for i in range(1, 6):       # 1,2,3,4,5
 for i in range(10, 0, -2):  # 10,8,6,4,2
     print(i)
 ```
+Got it Priya 👍
+I’ll keep this **only about `for` loops** (without using lists). Here are some **basic programs** you can practice:
 
-### Get index + value with `enumerate`
+---
 
-```python
-names = ["Priya", "Rani", "Raju"]
-for i, name in enumerate(names, start=1):
-    print(i, name)
-```
+## ✅ For Loop Example Programs
 
-### Loop multiple sequences together with `zip`
+### 1. Print numbers from 1 to 10
 
 ```python
-names = ["Priya", "Rani", "Raju"]
-scores = [90, 85, 88]
-for name, score in zip(names, scores):
-    print(f"{name}: {score}")
+for i in range(1, 11):
+    print(i)
 ```
 
-### Looping dictionaries
+---
+
+### 2. Print even numbers from 1 to 20
 
 ```python
-student = {"name": "Priya", "age": 21, "city": "Hyd"}
-for key in student:                 # keys
-    print(key, student[key])
-
-for key, val in student.items():    # key & value
-    print(key, val)
+for i in range(2, 21, 2):
+    print(i)
 ```
 
-## `for-else` (special feature)
+---
 
-* `else` runs **only if the loop didn’t `break`**.
+### 3. Print odd numbers from 1 to 20
 
 ```python
-nums = [2, 4, 6, 8]
-target = 5
-for n in nums:
-    if n == target:
-        print("Found!")
-        break
-else:
-    print("Not found")  # runs because no break
+for i in range(1, 21, 2):
+    print(i)
 ```
 
-## Common patterns with `for`
+---
 
-* **Counting/accumulation**
+### 4. Print squares of numbers 1 to 5
+
+```python
+for i in range(1, 6):
+    print(i, "squared is", i*i)
+```
+
+---
+
+### 5. Multiplication table of a number
+
+```python
+num = 7
+for i in range(1, 11):
+    print(num, "x", i, "=", num*i)
+```
+
+---
+
+### 6. Sum of first 10 natural numbers
 
 ```python
 total = 0
-for n in [1, 2, 3, 4]:
-    total += n
-print(total)  # 10
+for i in range(1, 11):
+    total += i
+print("Sum:", total)
 ```
 
-* **Filtering**
+---
+
+### 7. Factorial of a number
 
 ```python
-evens = []
-for n in range(1, 11):
-    if n % 2 == 0:
-        evens.append(n)
+n = 5
+fact = 1
+for i in range(1, n+1):
+    fact *= i
+print("Factorial of", n, "is", fact)
 ```
 
-* **Searching**
+---
+
+### 8. Fibonacci series (first 10 numbers)
 
 ```python
-found_index = -1
-for i, ch in enumerate("apple"):
-    if ch == 'p':
-        found_index = i
-        break
+a, b = 0, 1
+for _ in range(10):
+    print(a, end=" ")
+    a, b = b, a+b
 ```
 
+---
+
+### 9. Reverse counting (from 10 to 1)
+
+```python
+for i in range(10, 0, -1):
+    print(i)
+```
+
+---
+
+### 10. Print star pattern (triangle)
+
+```python
+rows = 5
+for i in range(1, rows+1):
+    print("*" * i)
+```
 
 # 2) `while` loop — repeat while condition is True
 
@@ -824,40 +878,114 @@ while i <= 5:
     i += 1
 ```
 
-### Sentinel (stop on condition)
+
+### 1. Print multiples of 3 up to 30
 
 ```python
-# Sum until we hit a negative number
-nums = [5, 7, 3, -1, 9]
-total = 0
-i = 0
-while i < len(nums) and nums[i] >= 0:
-    total += nums[i]
+i = 3
+while i <= 30:
+    print(i)
+    i += 3
+```
+### 2. Print squares of numbers 1 to 10
+
+```python
+i = 1
+while i <= 10:
+    print(i, "squared is", i*i)
     i += 1
-print(total)  # 15
 ```
 
-### Input loop (conceptual)
+### 3. Print cube of numbers 1 to 5
 
 ```python
-# keep asking until non-empty name
-name = ""
-while not name:
-    name = "Priya"  # pretend input() here
+i = 1
+while i <= 5:
+    print(i, "cube is", i**3)
+    i += 1
 ```
 
-## `while-else`
 
-* `else` runs **only if the loop wasn’t terminated by `break`**.
+### 4. Check if a number is palindrome
 
 ```python
-n = 3
+n = 121
+temp = n
+rev = 0
 while n > 0:
-    n -= 1
-    if n == 1:
-        break
+    digit = n % 10
+    rev = rev * 10 + digit
+    n //= 10
+if temp == rev:
+    print("Palindrome")
 else:
-    print("Finished naturally")  # won’t run because of break
+    print("Not Palindrome")
+```
+
+### 5. Print ASCII values of A to Z
+
+```python
+ch = 'A'
+while ch <= 'Z':
+    print(ch, "=", ord(ch))
+    ch = chr(ord(ch) + 1)
+```
+
+
+### 6. Print sum of digits of a number
+
+```python
+n = 1234
+total = 0
+while n > 0:
+    total += n % 10
+    n //= 10
+print("Sum of digits:", total)
+```
+
+### 7. Armstrong number check (e.g., 153 = 1³ + 5³ + 3³)
+
+```python
+n = 153
+temp = n
+total = 0
+while n > 0:
+    digit = n % 10
+    total += digit**3
+    n //= 10
+if temp == total:
+    print("Armstrong Number")
+else:
+    print("Not Armstrong")
+```
+
+### 8. Print alphabets from a to z
+
+```python
+ch = 'a'
+while ch <= 'z':
+    print(ch, end=" ")
+    ch = chr(ord(ch) + 1)
+```
+
+
+### 9. Print table of 9 in reverse
+
+```python
+i = 10
+while i >= 1:
+    print("9 x", i, "=", 9*i)
+    i -= 1
+```
+
+### 10. Number guessing game (simple)
+
+```python
+secret = 7
+guess = 0
+while guess != secret:
+    guess = int(input("Guess a number (1-10): "))
+print("Correct! 🎉")
 ```
 
 
@@ -894,258 +1022,121 @@ for _ in range(3):
     pass  # to be implemented later
 ```
 
-# 4) Under the hood: Iterables & Iterators (why `for` is powerful)
 
-* **Iterable**: object you can loop over (lists, strings, dicts, files, generators…).
-* **Iterator**: stateful object with `__next__()` that yields items one-by-one.
 
-`for` loop does:
+## 🔹 What is a Matching Statement in Python?
 
-1. Calls `iter(iterable)` to get an **iterator**.
-2. Repeatedly calls `next(iterator)` until **StopIteration** is raised.
+The **matching statement** in Python is the **`match` statement** (introduced in Python 3.10).
+It is Python’s version of **switch-case** (like in C, C++, Java).
 
-This is why `for` can loop over anything that defines the iterator protocol, including **generators**.
+👉 It allows you to compare a variable against multiple **patterns** or **values** and run the code that matches.
+
+
+## 🔹 Speciality of `match` Statement
+
+1. **Cleaner than if-elif-else**
+
+   * Instead of writing many `if-elif` conditions, we can write one `match` with multiple `case` blocks.
+
+2. **Supports Pattern Matching**
+
+   * Not just equality, it can check **ranges, conditions, data structures (lists, tuples)**.
+
+3. **Default Case with `_`**
+
+   * The `_` acts as a wildcard → matches anything (like `else` in `if-else`).
+
+4. **Readable and Structured**
+
+   * Easy to understand when there are many options.
+
+
+## 🔹 Syntax
+
+```python
+match variable:
+    case value1:
+        # code if variable == value1
+    case value2:
+        # code if variable == value2
+    case _:
+        # code if nothing matches (default)
+```
+
+
+## ✅ Example 1: Day of Week
+
+```python
+day = 3
+
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case _:
+        print("Invalid day")
+```
+
+Output:
+
+```
+Wednesday
+```
 
 ---
 
-# 5) Comprehensions vs Loops (Pythonic shortcuts)
-
-Comprehensions are compact loop expressions.
-
-### List comprehension (map + filter)
+## ✅ Example 2: Grade System with Conditions
 
 ```python
-squares = [x*x for x in range(1, 6)]               # [1,4,9,16,25]
-evens   = [x for x in range(10) if x % 2 == 0]      # [0,2,4,6,8]
+marks = 82
+
+match marks:
+    case m if m >= 90:
+        print("Grade A")
+    case m if m >= 75:
+        print("Grade B")
+    case m if m >= 50:
+        print("Grade C")
+    case _:
+        print("Fail")
 ```
 
+Output:
 
+```
+Grade B
+```
 
-* Prefer **`for`** when looping a known collection; prefer **`while`** for open-ended conditions.
-* Use built-ins for speed and clarity:
+---
 
-  ```python
-  total = sum(nums)          # faster than manual loop accumulation
-  any_even = any(x%2==0 for x in nums)
-  all_pos  = all(x>0 for x in nums)
-  ```
-* Combine with `sorted()`, `reversed()`, `set()`, `dict` lookups for efficiency.
-
-
-# 🔹 **Uses of Loops in Python**
-
-
-## **1. Repetition of Tasks (Automation)**
-
-Loops let us repeat a task **multiple times** without rewriting code.
-Instead of writing the same line 100 times, we use a loop.
-
-**Code:**
+## ✅ Example 3: Calculator
 
 ```python
-for i in range(5):
-    print("Hello Priya")
+a, b, op = 10, 5, '*'
+
+match op:
+    case '+':
+        print("Sum:", a + b)
+    case '-':
+        print("Difference:", a - b)
+    case '*':
+        print("Product:", a * b)
+    case '/':
+        print("Division:", a / b)
+    case _:
+        print("Invalid Operator")
 ```
 
-**Output:**
+Output:
 
 ```
-Hello Priya (5 times)
+Product: 50
 ```
 
-**Real-life analogy:** Washing machine rotates clothes multiple times in cycles — no need to manually turn them each time.
+✨ **In short:**
 
-
-## **2. Iterating Over Collections (Lists, Tuples, Strings, Dicts)**
-
-We can use loops to **go through each element** in a data structure.
-
-**Code:**
-
-```python
-names = ["Priya", "Rani", "Raju"]
-for name in names:
-    print(name)
-```
-
-**Output:**
-
-```
-Priya
-Rani
-Raju
-```
-
-**Real-life analogy:** Teacher calls attendance roll one by one from the list.
-
-
-## **3. Searching for an Item**
-
-Loops can be used to **find something** inside a collection.
-
-**Code:**
-
-```python
-nums = [2, 4, 6, 8, 10]
-target = 6
-
-found = False
-for n in nums:
-    if n == target:
-        found = True
-        break
-
-print("Found:", found)
-```
-
-**Real-life analogy:** Searching for your name in an exam results list.
-
-
-## **4. Summation / Aggregation**
-
-Loops help in **calculating totals** or other aggregate values.
-
-**Code:**
-
-```python
-numbers = [10, 20, 30, 40]
-total = 0
-
-for n in numbers:
-    total += n
-
-print("Sum =", total)
-```
-
-**Output:** `Sum = 100`
-
-**Real-life analogy:** Shopkeeper calculates bill by adding each item price.
-
-
-## **5. Generating Sequences / Patterns**
-
-Loops are used to generate **tables, series, or patterns**.
-
-**Code (Multiplication Table):**
-
-```python
-num = 5
-for i in range(1, 11):
-    print(num, "x", i, "=", num * i)
-```
-
-**Output:**
-
-```
-5 x 1 = 5
-5 x 2 = 10
-...
-5 x 10 = 50
-```
-
-**Real-life analogy:** School bell rings every period — a repetitive pattern.
-
-
-## **6. Validations (Until Correct Input)**
-
-`while` loops are useful for repeating **until a valid condition** is met.
-
-**Code:**
-
-```python
-password = ""
-while password != "1234":
-    password = input("Enter password: ")
-
-print("Correct password! Access granted.")
-```
-
-**Real-life analogy:** ATM asks for PIN again if entered wrong.
-
-## **7. Infinite Processes (Real-time Systems)**
-
-Some loops are meant to run **continuously** (with exit conditions inside).
-
-**Code:**
-
-```python
-while True:
-    command = input("Enter command (stop to exit): ")
-    if command == "stop":
-        break
-```
-
-**Real-life analogy:** Lift keeps running until it is switched off.
-
-
-## **8. Simulations (Games, Experiments)**
-
-Games and simulations rely on loops to **keep updating the state**.
-
-**Code:**
-
-```python
-lives = 3
-while lives > 0:
-    print("Life remaining:", lives)
-    lives -= 1
-```
-
-**Real-life analogy:** Video game loop — keeps running until player dies.
-
-
-## **9. Nested Loops (Grids / Multi-Dimensional Data)**
-
-When working with **2D data (like matrices, tables, chess boards)**, nested loops are used.
-
-**Code:**
-
-```python
-for i in range(3):
-    for j in range(3):
-        print("(", i, ",", j, ")")
-```
-
-**Output:**
-
-```
-(0,0) (0,1) (0,2)
-(1,0) (1,1) (1,2)
-(2,0) (2,1) (2,2)
-```
-
-**Real-life analogy:** Reading rows and columns in a spreadsheet.
-
-## **10. Breaking Large Problems into Small Iterations**
-
-Loops help in **step-by-step solutions** for big problems.
-
-**Example: Factorial using loop**
-
-```python
-n = 5
-fact = 1
-
-for i in range(1, n + 1):
-    fact *= i
-
-print("Factorial of", n, "is", fact)
-```
-
-**Output:** `Factorial of 5 is 120`
-
-**Real-life analogy:** Counting votes in an election one ballot at a time.
-
-
-✅ **Summary of Loop Uses:**
-
-1. Automating repetitive tasks
-2. Iterating over collections
-3. Searching items
-4. Calculating totals
-5. Generating tables/patterns
-6. Validations until correct input
-7. Infinite real-time processes
-8. Simulations & games
-9. Nested loops for grids
-10. Step-by-step problem solving
+* `match` is Python’s **modern replacement for long if-elif chains**.
+* Speciality → handles **multiple cases + pattern matching + default option `_`** in a clean way.
