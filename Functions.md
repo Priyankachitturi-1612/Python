@@ -244,6 +244,10 @@ print(square(5))   # 25
 add = lambda a, b: a + b
 print(add(10, 20))  # 30
 ```
+**Checking even or odd**
+check_even = lambda x: "Even" if x % 2 == 0 else "Odd"
+print(check_even(7))  # Odd
+
 
 
  **Use Case:** Quick functions where you don’t want to define a full `def` function.
@@ -323,4 +327,49 @@ print("Number of digits:", count_digits(num))  # 5
 
 * **Lambda** → For *short, inline, one-expression* functions.
 * **Recursive** → For *repeated self-calling problems with base case*.
+
+**Twisted prime**
+ # Function to check prime
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Function to reverse number
+def reverse_num(n):
+    rev = 0
+    while n > 0:
+        rev = rev * 10 + n % 10
+        n //= 10
+    return rev
+
+# Function to check twisted prime
+def is_twisted_prime(n):
+    if not is_prime(n):
+        return False
+    rev = reverse_num(n)
+    return is_prime(rev)
+
+# Function to print all twisted primes in a range
+def twisted_primes_in_range(n):
+    result = []
+    for i in range(2, n+1):
+        if is_twisted_prime(i):
+            result.append(i)
+    return result
+
+
+# 🔹 Testing
+print("Check numbers:")
+print("13 →", is_twisted_prime(13))   # True
+print("17 →", is_twisted_prime(17))   # True
+print("23 →", is_twisted_prime(23))   # False
+print("11 →", is_twisted_prime(11))   # True
+
+print("\nTwisted primes up to 100:")
+print(twisted_primes_in_range(100))
+# Output: [2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, 97]
 
