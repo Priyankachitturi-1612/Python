@@ -402,8 +402,8 @@ print("Hello\nWorld")
 
 print("Name\tAge")  
 print("Priya\t22")
-# Output:
-# Name    Age
+#** Output:**
+#** Name    Age**
 # Priya   22
 
 
