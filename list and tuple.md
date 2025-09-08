@@ -317,9 +317,7 @@ for i in range(n):
     nums.append(int(input("Enter number: ")))
 print("List:", nums)
 ```
-Great question Priya 🌸 — let’s go deep into **tuples** step by step.
 
----
 
 # 🔹 What is a Tuple?
 
@@ -343,9 +341,77 @@ t1 = (1, 2, 3)        # Normal tuple
 t2 = ()               # Empty tuple
 t3 = (10,)            # Single element (must have comma!)
 t4 = tuple([4, 5, 6]) # Using tuple() constructor
+
+
+## 🔑 **Tuple Constructor in Python**
+
+The **tuple constructor** is the built-in **`tuple()` function** that is used to create a tuple from another iterable (like list, string, set, etc.).
+
+### 📌 Syntax:
+
+```python
+tuple(iterable)
+```
+
+* **iterable** → something that can be looped over (list, string, set, dict, range, etc.).
+* If no argument is given → it creates an **empty tuple**.
+
+---
+
+## ✅ Examples of `tuple()` Constructor
+
+### 1. From a list
+
+```python
+lst = [1, 2, 3]
+t = tuple(lst)
+print(t)   # (1, 2, 3)
 ```
 
 ---
+
+### 2. From a string
+
+```python
+s = "hello"
+t = tuple(s)
+print(t)   # ('h', 'e', 'l', 'l', 'o')
+```
+
+---
+
+### 3. From a set
+
+```python
+st = {10, 20, 30}
+t = tuple(st)
+print(t)   # (10, 20, 30)  [order may change because set is unordered]
+```
+
+---
+
+### 4. From a dictionary
+
+👉 Only keys are taken by default.
+
+```python
+d = {"a": 1, "b": 2, "c": 3}
+t = tuple(d)
+print(t)   # ('a', 'b', 'c')
+```
+
+---
+
+### 5. Empty tuple
+
+```python
+t = tuple()
+print(t)   # ()
+```
+
+---
+
+
 
 # 🔹 Tuple Operations
 
@@ -376,8 +442,6 @@ print(100 not in t) # True
 for i in t:
     print(i, end=" ")  # 10 20 30 40 50
 ```
-
----
 
 # 🔹 Tuple Methods
 
@@ -421,8 +485,96 @@ print(sorted(t)) # [5, 10, 15, 20]  (returns list)
 t = (1, (2, 3), (4, 5, 6))
 print(t[1][1])  # 3
 ```
+Nice 👍 Let’s practice more **nested tuple accessing examples** step by step.
 
 ---
+
+## 📝 Examples: Accessing Elements in Nested Tuples
+
+---
+
+### Example 1: Simple nested tuple
+
+```python
+t = (1, 2, (3, 4, 5))
+
+print(t[0])       # 1
+print(t[2])       # (3, 4, 5) → inner tuple
+print(t[2][1])    # 4 (second element inside inner tuple)
+print(t[2][2])    # 5
+```
+
+---
+
+### Example 2: 2D Matrix stored as tuple of tuples
+
+```python
+matrix = (
+    (10, 20, 30),
+    (40, 50, 60),
+    (70, 80, 90)
+)
+
+print(matrix[0][0])   # 10 (first row, first col)
+print(matrix[1][2])   # 60 (second row, third col)
+print(matrix[2][1])   # 80 (third row, second col)
+```
+
+---
+
+### Example 3: Student data (Name, Roll, Marks)
+
+```python
+students = (
+    ("Priya", 101, (85, 90, 95)),
+    ("Ravi", 102, (70, 88, 92))
+)
+
+print(students[0][0])     # Priya (first student name)
+print(students[0][2][2])  # 95 (Priya's 3rd mark)
+print(students[1][0])     # Ravi
+print(students[1][2][0])  # 70 (Ravi's 1st mark)
+```
+
+---
+
+### Example 4: Company departments
+
+```python
+company = (
+    ("HR", ("Alice", "Bob")),
+    ("IT", ("Charlie", "David")),
+    ("Finance", ("Eva", "Frank"))
+)
+
+print(company[0][0])     # HR (department name)
+print(company[0][1][1])  # Bob (employee in HR)
+print(company[1][1][0])  # Charlie (employee in IT)
+print(company[2][1][1])  # Frank (employee in Finance)
+```
+
+---
+
+### Example 5: Deeply nested tuple
+
+```python
+nested = (1, (2, (3, (4, 5))))
+
+print(nested[1])        # (2, (3, (4, 5)))
+print(nested[1][1])     # (3, (4, 5))
+print(nested[1][1][1])  # (4, 5)
+print(nested[1][1][1][0])  # 4
+print(nested[1][1][1][1])  # 5
+```
+
+---
+
+✅ So rule is:
+
+* First index → chooses which tuple.
+* Second index → goes inside that tuple.
+* Third index → goes deeper inside if needed.
+
 
 # 🔹 Tuple Packing & Unpacking
 
@@ -445,9 +597,6 @@ print(city)  # Hyderabad
 * Used when data should not change.
 * Support indexing, slicing, iteration, but only **two methods** (`count`, `index`).
 
-Perfect Priya 🌸 — let’s go **step by step** on tuple **packing and unpacking**, because it’s very common in Python.
-
----
 
 # 🔹 1) Tuple Packing
 
