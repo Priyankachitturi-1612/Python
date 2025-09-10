@@ -23,7 +23,7 @@ Here:
 
 ## 🟢 Example Without Overloading
 
-```python
+
 class Book:
     def __init__(self, pages):
         self.pages = pages
@@ -32,11 +32,11 @@ b1 = Book(100)
 b2 = Book(200)
 
 print(b1 + b2)   # ❌ Error: unsupported operand type(s)
-```
+
 
 We get an **error** because Python doesn’t know **how to add two Book objects**.
 
----
+
 
 ## 🟢 Example With Operator Overloading
 
@@ -73,7 +73,6 @@ Here:
 * Built-in types already use it (numbers, strings, lists).
 * We define it using **magic methods** (`__add__`, `__sub__`, etc.).
 
-Great one Priya 👍
 **Method overriding** happens when a **child class defines a method with the same name as its parent class**.
 When you call that method using the child object → the **child’s method runs**, not the parent’s.
 
@@ -98,11 +97,9 @@ obj.display()   # Child method will run
 
 **Output:**
 
-```
 This is Child class method (Overridden)
-```
 
----
+
 
 ## 2. **Method Overriding with `super()`**
 
@@ -118,16 +115,14 @@ class Child(Parent):
 
 obj = Child()
 obj.show()
-```
+
 
 **Output:**
 
-```
 Hello from Parent
 Hello from Child (Overridden)
-```
 
----
+
 
 ## 3. **Real Example – Animal Sounds**
 
