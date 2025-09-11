@@ -256,3 +256,191 @@ Would you like me to combine **all three** (`readline`, `readlines`, `writelines
   * `write()`, `writelines()`
   * `seek()`, `tell()`
 
+
+
+
+## 🧠 What is Exception Handling?
+
+* **Exception** = an error that occurs during program execution (e.g., dividing by zero, opening a missing file, wrong input type).
+* If you **don’t handle** exceptions, your program will crash.
+* **Exception handling** lets you **catch errors** and take safe action (like showing a message instead of crashing).
+
+---
+
+## 🏗️ Syntax of Exception Handling
+
+```python
+try:
+    # Code that might raise an error
+except SomeError:
+    # What to do if that error happens
+```
+
+| Block     | Purpose                            |
+| --------- | ---------------------------------- |
+| `try`     | Code that might throw an exception |
+| `except`  | Code to handle the error           |
+| `else`    | Runs only if no exception occurred |
+| `finally` | Always runs (cleanup code)         |
+| `raise`   | Manually raise an exception        |
+
+
+## 🔑 Example 1: Basic Exception Handling
+
+```
+try:
+    x = int(input("Enter a number: "))
+    y = int(input("Enter another number: "))
+    result = x / y
+    print("Result:", result)
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+except ValueError:
+    print("Please enter only numbers!")
+```
+
+✅ This prevents the program from crashing if user enters invalid input or `y = 0`.
+
+---
+
+## 🔑 Example 2: Using `else` and `finally`
+
+```
+try:
+    f = open("myfile.txt", "r")
+    content = f.read()
+except FileNotFoundError:
+    print("File not found!")
+else:
+    print("File contents:", content)
+finally:
+    print("Execution completed.")
+```
+
+* **`else`** → runs only if no exception occurs
+* **`finally`** → runs no matter what (good for cleanup like closing files or database connections)
+
+---
+
+## 🔑 Example 3: Catching Any Error
+
+```python
+try:
+    num = int("abc")
+except Exception as e:
+    print("Some error occurred:", e)
+```
+
+Here, `e` will contain the actual error message (`invalid literal for int()`).
+
+---
+
+## 🔑 Example 4: Custom Exceptions (Advanced)
+
+You can even **raise your own exceptions**:
+
+```
+age = -5
+try:
+    if age < 0:
+        raise ValueError("Age cannot be negative!")
+    print("Your age is", age)
+except ValueError as e:
+    print("Error:", e)
+```
+Perfect, Priya! ✅
+Let’s create **one complete program** that uses **all five keywords** (`try`, `except`, `else`, `finally`, `raise`) together so you can clearly see how they work in a single flow.
+
+---
+
+## 📝 Full Example: Age Validation Program
+
+```python
+try:
+    age = int(input("Enter your age: "))  # 🔹 Code that might throw ValueError
+
+    if age < 0:
+        raise ValueError("Age cannot be negative!")  # 🔹 Manually raise exception
+
+except ValueError as e:
+    print("❌ Exception caught:", e)  # 🔹 Handle error
+
+else:
+    print("✅ No exception occurred.")
+    print("Your age is:", age)       # 🔹 Runs only if no error
+
+finally:
+    print("🔄 Program execution finished (finally block)")  # 🔹 Always runs
+```
+
+---
+
+### 🔎 Explanation:
+
+| Keyword       | What Happened Here                                                 |
+| ------------- | ------------------------------------------------------------------ |
+| **`try`**     | Contains risky code: input + conversion to `int`                   |
+| **`raise`**   | If age is negative, manually triggers a `ValueError`               |
+| **`except`**  | Catches both input errors (`ValueError`) and raised error          |
+| **`else`**    | Runs only if no exception occurred (displays age)                  |
+| **`finally`** | Always runs (cleanup message, like closing files or DB connection) |
+
+---
+
+### 🧪 Example Run 1: Valid Input
+
+**Input:**
+
+```
+Enter your age: 25
+```
+
+**Output:**
+
+```
+✅ No exception occurred.
+Your age is: 25
+🔄 Program execution finished (finally block)
+```
+
+---
+
+### 🧪 Example Run 2: Negative Age
+
+**Input:**
+
+```
+Enter your age: -5
+```
+
+**Output:**
+
+```
+❌ Exception caught: Age cannot be negative!
+🔄 Program execution finished (finally block)
+```
+
+---
+
+### 🧪 Example Run 3: Invalid Input
+
+**Input:**
+
+```
+Enter your age: hello
+```
+
+**Output:**
+
+```
+❌ Exception caught: invalid literal for int() with base 10: 'hello'
+🔄 Program execution finished (finally block)
+```
+
+---
+
+✅ **This one program covers all five keywords in action.**
+You can run it in VS Code and test with different inputs (`25`, `-10`, `abc`) to see all cases.
+
+
+
