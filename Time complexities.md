@@ -33,22 +33,80 @@ print(lst[2])  # Accessing element → O(1)
 lst = [1, 2, 3, 4, 5]
 for x in lst:
     print(x)  # Looping through all elements → O(n)
-```
+
 
 ### 3️⃣ Quadratic Time: O(n^2)
 
-```python
+
 lst = [1, 2, 3]
 for i in lst:
     for j in lst:
         print(i, j)  # Nested loops → O(n^2)
+
+
+### Example with a `break` Condition
+
+lst = [1, 2, 3]
+target = 2  # Condition: stop when i == 2 and j == 2
+
+for i in lst:
+    for j in lst:
+        print(i, j)
+        if i == target and j == target:
+            print("Condition met → Breaking out of inner loop")
+            break  # stops only inner loop
+
+
+
+### **Execution**
+
+🔹 **Iteration flow:**
+
+* `(1, 1)` → print
+* `(1, 2)` → print
+* `(1, 3)` → print
+* `(2, 1)` → print
+* `(2, 2)` → condition met → break inner loop
+* Outer loop continues with `i = 3`, inner loop restarts.
+
+---
+
+### **If you want to break completely (stop both loops):**
+
+```python
+lst = [1, 2, 3]
+target = 2
+found = False
+
+for i in lst:
+    for j in lst:
+        print(i, j)
+        if i == target and j == target:
+            print("Condition met → Breaking out of both loops")
+            found = True
+            break
+    if found:
+        break
 ```
+
+
+### **Best / Average / Worst Case Analysis**
+
+| Case             | What Happens                                                    | Time Complexity        |
+| ---------------- | --------------------------------------------------------------- | ---------------------- |
+| **Best Case**    | Condition is met at very first pair `(1,1)` → Break immediately | **O(1)**               |
+| **Average Case** | Condition is met somewhere in the middle                        | **O(n² / 2)** (approx) |
+| **Worst Case**   | Condition never met → Visit all pairs `(i, j)`                  | **O(n²)**              |
+
+---
+
+✅ **This is how you get different best, average, and worst cases.**
+Without a `break`, we always get `O(n²)`.
 
 ### 4️⃣ Logarithmic Time: O(log n)
 
 * Example: **Binary search**
 
-```python
 def binary_search(arr, target):
     low = 0
     high = len(arr) - 1
@@ -61,12 +119,8 @@ def binary_search(arr, target):
         else:
             high = mid - 1
     return -1
-```
 
 * Each step **halves the array** → O(log n)
-
-Ah, Priya! Let me explain **O(n log n)** clearly — it’s very common in **sorting algorithms** and some divide-and-conquer algorithms. 😄
-
 
 
 ## 🔹 What is O(n log n)?
@@ -83,7 +137,6 @@ Ah, Priya! Let me explain **O(n log n)** clearly — it’s very common in **sor
 
 ## 🔹 Example: Merge Sort (O(n log n))
 
-```python
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -108,7 +161,6 @@ def merge_sort(arr):
 
 arr = [5, 2, 4, 1, 3]
 print(merge_sort(arr))
-```
 
 **Explanation of O(n log n):**
 
