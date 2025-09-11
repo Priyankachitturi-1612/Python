@@ -190,7 +190,6 @@ print(m._salary)  # ⚠️ Can access but should be avoided (not strictly privat
 
 An **iterator** lets you access elements **one by one**.
 
-```python
 # Simple iterator example
 nums = [1, 2, 3]
 
@@ -205,7 +204,6 @@ print(next(it))  # 3
 
 ### ✅ Using `while` loop
 
-```python
 nums = [1, 2, 3]
 it = iter(nums)  # create iterator
 
@@ -235,11 +233,9 @@ while True:
 
 ✅ **Key idea:** `iter()` + `next()` lets you go through elements **manually**.
 
----
 
 ### Easy Custom Iterator Example
 
-```python
 class Counter:
     def __init__(self, limit):
         self.num = 1
@@ -274,7 +270,6 @@ Output:
 
 A **generator** is a simpler way to create an iterator using `yield`.
 
-```python
 # Simple generator example
 def numbers(n):
     for i in range(1, n+1):
@@ -295,18 +290,15 @@ Output:
 
 ✅ **Key idea:** `yield` produces one value at a time, **saves memory**.
 
----
 
 ### Generator Example: Squares
 
-```python
 def squares(n):
     for i in range(n):
         yield i * i
 
 for s in squares(5):
     print(s)
-```
 
 Output:
 
@@ -324,7 +316,7 @@ Output:
 
 A **decorator** adds extra behavior to a function **without changing the function code**.
 
-```python
+
 # Simple decorator example
 def greet_decorator(func):
     def wrapper():
@@ -338,7 +330,7 @@ def say_hello():
     print("This is the main function.")
 
 say_hello()
-```
+
 
 Output:
 
