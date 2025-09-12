@@ -284,3 +284,209 @@ It chooses a **pivot** element, partitions the array into two sub-arrays (smalle
 | **Merge Sort**     | Divide & merge         | O(n log n) | O(n)     | Large arrays, stable sort           |
 | **Quick Sort**     | Partition around pivot | O(n log n) | O(log n) | Large arrays, in-place fast sort    |
 
+
+
+## 📝 **1. Sort an Array in Ascending Order**
+
+### **Code (Easiest Way – Using Built-in Function)**
+
+```python
+arr = [5, 1, 4, 2, 8]
+arr.sort()  # sorts in ascending order
+print("Sorted Array:", arr)
+```
+
+✅ **Output:**
+
+```
+Sorted Array: [1, 2, 4, 5, 8]
+```
+
+---
+
+## 📝 **2. Sort an Array in Descending Order**
+
+### **Code:**
+
+```python
+arr = [10, 7, 15, 3, 9]
+arr.sort(reverse=True)  # sorts in descending order
+print("Sorted Array (Descending):", arr)
+```
+
+✅ **Output:**
+
+```
+Sorted Array (Descending): [15, 10, 9, 7, 3]
+```
+
+---
+
+## 📝 **3. Find K-th Smallest Element**
+
+### **Code:**
+
+```python
+arr = [7, 2, 1, 10, 5]
+arr.sort()
+k = 3
+print(f"{k}rd smallest element is:", arr[k-1])
+```
+
+✅ **Output:**
+
+```
+3rd smallest element is: 5
+```
+
+---
+
+## 📝 **4. Sort Names Alphabetically**
+
+### **Code:**
+
+```python
+names = ["Zara", "Amit", "Rahul", "Kiran"]
+names.sort()  # sorts alphabetically
+print("Sorted Names:", names)
+```
+
+✅ **Output:**
+
+```
+Sorted Names: ['Amit', 'Kiran', 'Rahul', 'Zara']
+```
+
+---
+
+## 📝 **5. Sort Based on Absolute Values**
+
+### **Code:**
+
+```python
+arr = [-3, 1, -7, 4, -2]
+arr.sort(key=abs)  # sort by absolute value
+print("Sorted by Absolute Values:", arr)
+```
+
+✅ **Output:**
+
+```
+Sorted by Absolute Values: [1, -2, -3, 4, -7]
+```
+
+---
+
+## 📝 **6. Sort Only Even Numbers (Keep Odd in Place)**
+
+### **Code (Easy Approach):**
+
+```python
+arr = [9, 4, 2, 7, 6, 5]
+
+# Extract even numbers and sort them
+evens = sorted([x for x in arr if x % 2 == 0])
+
+# Place back sorted evens into original array
+j = 0
+for i in range(len(arr)):
+    if arr[i] % 2 == 0:
+        arr[i] = evens[j]
+        j += 1
+
+print("Array after sorting evens only:", arr)
+```
+
+✅ **Output:**
+
+```
+Array after sorting evens only: [9, 2, 4, 7, 6, 5]
+```
+
+---
+
+## 📝 **7. Check If Array is Already Sorted**
+
+### **Code:**
+
+```python
+arr = [1, 3, 5, 7, 9]
+if arr == sorted(arr):
+    print("Array is already sorted")
+else:
+    print("Array is not sorted")
+```
+
+✅ **Output:**
+
+```
+Array is already sorted
+```
+
+---
+
+## 📝 **8. Sort Students by Marks**
+
+### **Code:**
+
+```python
+students = [("A", 50), ("B", 90), ("C", 70)]
+students.sort(key=lambda x: x[1])  # sort by marks (second value)
+print("Sorted by Marks:", students)
+```
+
+✅ **Output:**
+
+```
+Sorted by Marks: [('A', 50), ('C', 70), ('B', 90)]
+```
+
+---
+
+## 📝 **9. Sort and Remove Duplicates**
+
+### **Code:**
+
+```python
+arr = [4, 2, 4, 3, 2, 1]
+arr = sorted(set(arr))  # remove duplicates using set, then sort
+print("Sorted without duplicates:", arr)
+```
+
+✅ **Output:**
+
+```
+Sorted without duplicates: [1, 2, 3, 4]
+```
+
+---
+
+## 📝 **10. Sort in Wave Form**
+
+### **Code (Easy Way):**
+
+```python
+arr = [10, 5, 6, 3, 2, 20]
+arr.sort()  # sort first
+
+# Swap adjacent pairs to make wave
+for i in range(0, len(arr)-1, 2):
+    arr[i], arr[i+1] = arr[i+1], arr[i]
+
+print("Wave Form Array:", arr)
+```
+
+✅ **Output:**
+
+```
+Wave Form Array: [3, 2, 6, 5, 20, 10]
+```
+
+---
+
+### 🧠 **Why These Are Easy Approaches**
+
+* We used **Python’s built-in `sort()`** where possible (simplest way).
+* For small variations (like even numbers only), we combined `sorted()` + list comprehension.
+* No complicated manual sorting loops — so it's beginner-friendly.
+
