@@ -1,4 +1,3 @@
-
 ## 🔎 1️⃣ Linear Search (Simple Search)
 
 📌 **Concept:**
@@ -86,13 +85,10 @@ Linear Search: Found 30 at index 2
 Binary Search: Found 30 at index 2
 ```
 
-Absolutely, Priya! 😊 I’ll give you **all 4 problems together**, each with its **Python code** and the **expected output** so you can see exactly what happens when you run them.
-
----
 
 ## **1️⃣ Linear Search – Find an Element in a List**
 
-```python
+```
 def linear_search(arr, target):
     for i, val in enumerate(arr):
         if val == target:
@@ -116,7 +112,7 @@ Linear Search: Found at index 2
 
 ## **2️⃣ Linear Search – Find the First Even Number**
 
-```python
+```
 def first_even_index(arr):
     for i, val in enumerate(arr):
         if val % 2 == 0:
@@ -138,11 +134,37 @@ else:
 First even number 10 found at index 3
 ```
 
+
+### **Code: First Even Element Using Linear Search**
+
+```
+def first_even(arr):
+    for i in range(len(arr)):  # go through each element
+        if arr[i] % 2 == 0:    # check if number is even
+            return i           # return its index
+    return -1  # if no even number is found
+
+arr = [3, 7, 9, 5, 12, 15]
+
+index = first_even(arr)
+if index != -1:
+    print(f"First even element is {arr[index]} at index {index}")
+else:
+    print("No even element found")
+```
+
+
+### ✅ **Output**
+
+```
+First even element is 12 at index 4
+```
+
 ---
 
 ## **3️⃣ Binary Search – Search in a Sorted List**
 
-```python
+```
 def binary_search(arr, target):
     left, right = 0, len(arr) - 1
     while left <= right:
@@ -172,7 +194,7 @@ Binary Search: Found at index 3
 
 ## **4️⃣ Binary Search – Find Smallest Number Greater Than Target**
 
-```python
+```
 def smallest_greater(arr, target):
     left, right = 0, len(arr) - 1
     result = -1
