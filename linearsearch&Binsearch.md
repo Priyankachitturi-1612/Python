@@ -6,7 +6,7 @@
 * Works on **unsorted or sorted lists**.
 * **Time Complexity:** O(n)
 
-### ✅ Code Example:
+### ✅ Linear Search Code:
 
 ```
 def linear_search(arr, target):
@@ -223,7 +223,6 @@ else:
 Smallest number greater than 7 is 8 at index 2
 ```
 
----
 
 ✅ **Summary**
 
