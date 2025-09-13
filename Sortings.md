@@ -353,6 +353,51 @@ print("Sorted array:", merge_sort(arr))
 Original array: [5, 3, 8, 4, 2]
 Sorted array: [2, 3, 4, 5, 8]
 ```
+You want **custom key support** (like `key=len`) but still using **only one function** like your single-function merge sort.
+Yes — we can absolutely do that! ✅
+
+Here’s the modified version:
+
+---
+
+## ✅ **Merge Sort with Custom Key (Single Function)**
+
+```python
+def merge_sort(arr, key=lambda x: x):  # ✅ key argument (default: identity)
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid], key)
+    right = merge_sort(arr[mid:], key)
+
+    # ✅ Merge step with custom key
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if key(left[i]) <= key(right[j]):  # <-- compare by key
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+# Example: sort by length of words
+words = ["cat", "elephant", "dog", "bear"]
+print("Sorted by length:", merge_sort(words, key=len))
+```
+
+---
+
+### ✅ **Output**
+
+```
+Sorted by length: ['cat', 'dog', 'bear', 'elephant']
+```
 
 
 ## ⚡ 4. Quick Sort 
