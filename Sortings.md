@@ -355,7 +355,7 @@ Sorted array: [2, 3, 4, 5, 8]
 ```
 
 
-## ⚡ **4. Quick Sort **
+## ⚡ 4. Quick Sort 
 
 ## 🔑 Why It Works
 
