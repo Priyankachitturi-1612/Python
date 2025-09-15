@@ -537,3 +537,322 @@ Now sort left and right **separately**.
 
 
 
+
+
+
+# 📚 **Heap Sort **
+
+## ✅ **Definition**
+
+Heap Sort is a **comparison-based sorting algorithm** that uses a **binary heap data structure**.
+It works by first building a **max heap** from the input data, then repeatedly extracting the largest element from the heap and placing it at the end of the array.
+
+---
+
+## 🧠 **Key Concepts**
+
+* **Heap** → A complete binary tree that satisfies the **heap property**:
+
+  * **Max-Heap**: Parent node is always **greater than or equal** to its children.
+  * **Min-Heap**: Parent node is always **less than or equal** to its children.
+* Heap is usually stored as an **array**:
+
+  * For node at index `i`:
+
+    * Left child → `2*i + 1`
+    * Right child → `2*i + 2`
+    * Parent → `(i-1) // 2`
+
+---
+
+## 🔄 **Algorithm Steps**
+
+1. **Build Max Heap** from the array.
+2. Swap the root (largest element) with the last element.
+3. Reduce heap size by 1.
+4. Call `heapify` on root to maintain max-heap property.
+5. Repeat until entire array is sorted.
+
+
+## ⏱ **Time Complexity**
+
+| Step                | Complexity     |
+| ------------------- | -------------- |
+| Building max heap   | **O(n)**       |
+| Heapify per element | **O(log n)**   |
+| Total (n elements)  | **O(n log n)** |
+
+✅ **Overall Complexity:** **O(n log n)** (for best, average, worst case)
+
+---
+
+## 💾 **Space Complexity**
+
+* **O(1)** (in-place sorting, no extra array needed)
+
+
+## 🟢 **Advantages**
+
+* Guaranteed **O(n log n)** performance (no worst-case like Quick Sort).
+* Works **in-place** (no extra memory).
+* Good for large datasets where memory is limited.
+
+---
+
+## 🔴 **Disadvantages**
+
+* **Not stable** (relative order of equal elements may change).
+* Slightly slower than Quick Sort in practice due to overhead of heap operations.
+
+
+
+## 🧠 **When to Use Heap Sort**
+
+* When you need **O(n log n)** performance **guaranteed** (even in worst case).
+* When you have **limited extra memory**.
+* When **stability is not required**.
+
+
+
+```
+def heap_sort(arr):
+    n = len(arr)   # Step 1: Get number of elements in array
+
+    # Step 2: Define heapify function inside heap_sort
+    # heapify() will maintain the max-heap property for a subtree
+    def heapify(i, size):
+        largest = i               # Assume root is largest
+        left = 2 * i + 1          # Index of left child
+        right = 2 * i + 2         # Index of right child
+
+        # If left child exists and is greater than root -> update largest
+        if left < size and arr[left] > arr[largest]:
+            largest = left
+
+        # If right child exists and is greater than current largest -> update largest
+        if right < size and arr[right] > arr[largest]:
+            largest = right
+
+        # If largest is not root, swap and recursively heapify affected subtree
+        if largest != i:
+            arr[i], arr[largest] = arr[largest], arr[i]
+            heapify(largest, size)  # Recursively fix the subtree
+
+    # Step 3: Build max heap
+    # Start from last non-leaf node and heapify each one
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(i, n)
+
+    # Step 4: Extract elements one by one
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # Move largest element (root) to end
+        heapify(0, i)  # Heapify remaining part (reduce size by 1 each time)
+```
+
+---
+
+## 🔎 **How It Works (Step by Step)**
+
+Let’s take `arr = [12, 11, 13, 5, 6, 7]`
+
+### **Step 1: Build Max Heap**
+
+We start heapifying from last non-leaf node (`n // 2 - 1 = 2`) backwards.
+
+✅ After building max heap → `arr = [13, 11, 12, 5, 6, 7]`
+(Largest element 13 is now at root, index 0)
+
+---
+
+### **Step 2: Sorting**
+
+Now we repeatedly swap root with last element and heapify reduced array:
+
+| Iteration | Swap Root with End               | After Swap              | After Heapify (Max Heap)         |
+| --------- | -------------------------------- | ----------------------- | -------------------------------- |
+| 1         | Swap `13` (root) with `7` (last) | `[7, 11, 12, 5, 6, 13]` | `[12, 11, 7, 5, 6, 13]`          |
+| 2         | Swap `12` with `6`               | `[6, 11, 7, 5, 12, 13]` | `[11, 6, 7, 5, 12, 13]`          |
+| 3         | Swap `11` with `5`               | `[5, 6, 7, 11, 12, 13]` | `[7, 6, 5, 11, 12, 13]`          |
+| 4         | Swap `7` with `5`                | `[5, 6, 7, 11, 12, 13]` | `[6, 5, 7, 11, 12, 13]`          |
+| 5         | Swap `6` with `5`                | `[5, 6, 7, 11, 12, 13]` | `[5, 6, 7, 11, 12, 13]` ✅ Sorted |
+
+---
+
+### **Final Output**
+
+```
+Original array: [12, 11, 13, 5, 6, 7]
+Sorted array:   [5, 6, 7, 11, 12, 13]
+```
+
+## **Step 0: Original Array as Binary Tree**
+
+Array: `[12, 11, 13, 5, 6, 7]`
+Tree representation (indices in parentheses):
+
+```
+        12(0)
+       /     \
+   11(1)     13(2)
+   /   \     /
+ 5(3) 6(4) 7(5)
+```
+
+
+
+**Heap after building max heap:**
+
+```
+        13
+       /  \
+     11    12
+    /  \   /
+   5    6 7
+```
+
+Array now: `[13, 11, 12, 5, 6, 7]`
+
+---
+
+## **Step 2: Extract Max and Heapify**
+
+### **Iteration 1: Swap root with last element (index 5)**
+
+* Swap 13 ↔ 7
+* Array: `[7, 11, 12, 5, 6, 13]`
+* Heapify root (index 0):
+
+```
+        7
+       / \
+     11   12
+    /  \
+   5    6
+```
+
+* Largest child 12 → swap 7 and 12
+
+```
+        12
+       /  \
+     11    7
+    /  \
+   5    6
+```
+
+Array now: `[12, 11, 7, 5, 6, 13]`
+
+* 13 is now at the **sorted position** (end of array)
+
+---
+
+### **Iteration 2: Swap root with index 4**
+
+* Swap 12 ↔ 6
+* Array: `[6, 11, 7, 5, 12, 13]`
+* Heapify root (6):
+
+```
+        6
+       / \
+     11   7
+    /
+   5
+```
+
+* Largest child 11 → swap 6 and 11
+
+```
+        11
+       /  \
+      6    7
+     /
+    5
+```
+
+Array now: `[11, 6, 7, 5, 12, 13]`
+
+* 12 and 13 are sorted at the end
+
+---
+
+### **Iteration 3: Swap root with index 3**
+
+* Swap 11 ↔ 5
+* Array: `[5, 6, 7, 11, 12, 13]`
+* Heapify root (5):
+
+```
+        5
+       / \
+      6   7
+```
+
+* Largest child 7 → swap 5 and 7
+
+```
+        7
+       / \
+      6   5
+```
+
+Array now: `[7, 6, 5, 11, 12, 13]`
+
+* 11,12,13 are sorted
+
+---
+
+### **Iteration 4: Swap root with index 2**
+
+* Swap 7 ↔ 5
+* Array: `[5, 6, 7, 11, 12, 13]`
+* Heapify root (5):
+
+```
+        6
+       /
+      5
+```
+
+* Largest child 6 → swap 5 and 6
+
+```
+        6
+       /
+      5
+```
+
+Array now: `[6, 5, 7, 11, 12, 13]`
+
+---
+
+### **Iteration 5: Swap root with index 1**
+
+* Swap 6 ↔ 5
+* Array now fully sorted: `[5, 6, 7, 11, 12, 13]`
+
+---
+
+## ✅ **Final Sorted Array**
+
+```
+[5, 6, 7, 11, 12, 13]
+```
+
+---
+
+### 🔑 **Key Takeaways from the Tree Diagram**
+
+1. Heap Sort **builds max heap** first (largest at root).
+2. Repeatedly **swap root with last element** → reduces heap size.
+3. **Heapify the reduced heap** to maintain max heap.
+4. Sorted elements accumulate at the **end of the array**.
+
+
+## 🎯 Key Idea
+
+* **heapify()** ensures each subtree follows **max heap property**.
+* We **build max heap once**, then keep removing largest element (root) and placing it at the end.
+* Each `heapify()` call takes `O(log n)` time, and we do it for `n` elements → **O(n log n)** overall.
+
+
