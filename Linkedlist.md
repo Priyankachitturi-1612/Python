@@ -505,3 +505,225 @@ Updated List:
 10 -> 20 -> 40 -> 50 -> None
 ```
 
+
+
+## 4️⃣ Find the Length of the Linked List
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# Function to count nodes
+def length(head):
+    count = 0
+    temp = head
+    while temp:
+        count += 1
+        temp = temp.next
+    return count
+
+# Example Usage
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+print("Length of Linked List:", length(head))
+```
+
+---
+
+## 5️⃣ Search for a Value in the Linked List
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def search(head, key):
+    temp = head
+    while temp:
+        if temp.data == key:
+            return True
+        temp = temp.next
+    return False
+
+# Example Usage
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+key = int(input("Enter value to search: "))
+print("Found!" if search(head, key) else "Not Found!")
+```
+
+---
+
+## 6️⃣ Find Maximum and Minimum Values in the List
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def find_max_min(head):
+    if not head:
+        return None, None
+    max_val = min_val = head.data
+    temp = head.next
+    while temp:
+        if temp.data > max_val:
+            max_val = temp.data
+        if temp.data < min_val:
+            min_val = temp.data
+        temp = temp.next
+    return max_val, min_val
+
+# Example Usage
+head = Node(10)
+head.next = Node(50)
+head.next.next = Node(5)
+head.next.next.next = Node(40)
+
+max_val, min_val = find_max_min(head)
+print("Max:", max_val, " Min:", min_val)
+```
+
+---
+
+## 7️⃣ Reverse a Linked List (In-Place)
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def reverse(head):
+    prev = None
+    current = head
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev  # new head
+
+def display(head):
+    temp = head
+    while temp:
+        print(temp.data, end=" -> ")
+        temp = temp.next
+    print("None")
+
+# Example Usage
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+print("Original List:")
+display(head)
+
+head = reverse(head)
+print("Reversed List:")
+display(head)
+```
+
+---
+
+## 8️⃣ Find the Middle Element of the List
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def find_middle(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow.data if slow else None
+
+# Example Usage
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+head.next.next.next = Node(40)
+
+print("Middle Element:", find_middle(head))
+```
+
+---
+
+## 9️⃣ Detect a Cycle in the Linked List (Floyd’s Algorithm)
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def has_cycle(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
+
+# Example Usage
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+# Creating a cycle for testing (uncomment to check)
+# head.next.next.next = head.next
+
+print("Cycle Detected!" if has_cycle(head) else "No Cycle Found!")
+```
+
+---
+
+## 🔟 Remove Duplicates from a Sorted Linked List
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def remove_duplicates_sorted(head):
+    current = head
+    while current and current.next:
+        if current.data == current.next.data:
+            current.next = current.next.next
+        else:
+            current = current.next
+    return head
+
+def display(head):
+    temp = head
+    while temp:
+        print(temp.data, end=" -> ")
+        temp = temp.next
+    print("None")
+
+# Example Usage
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(20)
+head.next.next.next = Node(30)
+
+print("Original List:")
+display(head)
+
+head = remove_duplicates_sorted(head)
+print("After Removing Duplicates:")
+display(head)
+```
