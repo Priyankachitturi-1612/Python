@@ -727,3 +727,508 @@ head = remove_duplicates_sorted(head)
 print("After Removing Duplicates:")
 display(head)
 ```
+
+Let’s break this down step by step — this is an important topic in Data Structures.
+
+---
+
+##  **Doubly Linked List (DLL)**
+
+A **Doubly Linked List** is a type of linked list where each node contains:
+
+1. **Data** (the actual value stored)
+2. **Pointer to the next node** (`next`)
+3. **Pointer to the previous node** (`prev`)
+
+This means you can **traverse the list in both directions** (forward and backward), unlike a singly linked list which only moves forward.
+---
+
+##  **How to Create a Doubly Linked List**
+
+Each node is an object with three parts.
+In Python, a basic implementation looks like this:
+
+
+```python
+# Node Class
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+✅ Creates a **Doubly Linked List**
+✅ Inserts some elements
+✅ Traverses **forward** (head → tail)
+✅ Traverses **backward** (tail → head)
+
+---
+
+##  **Code – DLL with Forward & Backward Traversal**
+
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+        new_node.prev = curr
+
+    def display_forward(self):
+        if self.head is None:
+            print("List is empty.")
+            return
+        curr = self.head
+        print("Forward Traversal: ", end="")
+        while curr:
+            print(curr.data, end=" <-> ")
+            last = curr  # keep track of last node
+            curr = curr.next
+        print("None")
+        return last  # return last node for backward traversal
+
+    def display_backward(self):
+        if self.head is None:
+            print("List is empty.")
+            return
+        # go to last node first
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        print("Backward Traversal: ", end="")
+        while curr:
+            print(curr.data, end=" <-> ")
+            curr = curr.prev
+        print("None")
+
+
+# ---------- DEMO ----------
+dll = DoublyLinkedList()
+
+# Insert some elements
+dll.insert_at_end(10)
+dll.insert_at_end(20)
+dll.insert_at_end(30)
+dll.insert_at_end(40)
+
+dll.display_forward()   # Head → Tail
+dll.display_backward()  # Tail → Head
+```
+
+---
+
+## ✅ **Sample Output**
+
+```
+Forward Traversal: 10 <-> 20 <-> 30 <-> 40 <-> None
+Backward Traversal: 40 <-> 30 <-> 20 <-> 10 <-> None
+```
+
+---
+
+## 🔑 Key Points
+
+* **Forward traversal:** Uses `next` pointers → natural order.
+* **Backward traversal:** First moves to last node, then uses `prev` pointers → reverse order.
+* This demonstrates the **biggest advantage** of a doubly linked list — **bidirectional traversal**.
+
+
+# Doubly Linked List Class
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    # Insert at the end
+    def append(self, data):
+        new_node = Node(data)
+        if self.head is None:  # empty list
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+        new_node.prev = last
+
+    # Display forward
+    def display_forward(self):
+        current = self.head
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.next
+        print("None")
+```
+
+
+##  **Operations on Doubly Linked List**
+
+Here are the main operations you can perform:
+
+1. **Traversal**
+
+   * Forward traversal (head → tail)
+   * Backward traversal (tail → head)
+
+2. **Insertion**
+
+   * At the beginning
+   * At the end
+   * After a given node
+   * Before a given node
+
+3. **Deletion**
+
+   * From the beginning
+   * From the end
+   * A specific node by value or position
+
+4. **Searching**
+
+   * Find if a value exists in the list
+
+5. **Reversing**
+
+   * Reverse the entire list by swapping `next` and `prev` pointers
+
+6. **Length**
+
+   * Count the number of nodes in the list
+
+
+**No — insert at beginning and insert at end are *not* the same.**
+They are similar in that both create a new node and adjust pointers, but **where you link the node changes completely.**
+
+
+
+## 🟢 **Insert at Beginning**
+
+You add the node **before the current head** and make it the new head.
+
+### Steps:
+
+1. Create a new node.
+2. Set `new_node.next = self.head`.
+3. If list is not empty, set `self.head.prev = new_node`.
+4. Move `self.head = new_node`.
+
+### Code:
+
+```
+def insert_at_beginning(self, data):
+    new_node = Node(data)
+    new_node.next = self.head  # link new node to old head
+    if self.head is not None:  # update old head's prev pointer
+        self.head.prev = new_node
+    self.head = new_node  # make new node the head
+```
+
+
+## 🔵 **Insert at End**
+
+You add the node **after the current last node (tail)**.
+
+### Steps:
+
+1. Create a new node.
+2. If list is empty, make it head.
+3. Otherwise, traverse to last node.
+4. Set `last.next = new_node` and `new_node.prev = last`.
+
+### Code:
+
+```
+def insert_at_end(self, data):
+    new_node = Node(data)
+    if self.head is None:  # empty list
+        self.head = new_node
+        return
+    curr = self.head
+    while curr.next:  # go to last node
+        curr = curr.next
+    curr.next = new_node
+    new_node.prev = curr
+```
+
+
+
+## 🧠 **Key Difference**
+
+| Operation               | Pointer Adjustments                  | Traversal Needed?       | Time Complexity                             |
+| ----------------------- | ------------------------------------ | ----------------------- | ------------------------------------------- |
+| **Insert at Beginning** | Change only `head` & `new_node.next` | ❌ No                    | **O(1)**                                    |
+| **Insert at End**       | Change `last.next`, `new_node.prev`  | ✅ Yes (go to last node) | **O(n)** (unless you keep a `tail` pointer) |
+
+
+
+## 📌 Example (Both in Action)
+
+```
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        if self.head:
+            self.head.prev = new_node
+        self.head = new_node
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+        new_node.prev = curr
+
+    def display(self):
+        curr = self.head
+        while curr:
+            print(curr.data, end=" <-> ")
+            curr = curr.next
+        print("None")
+
+
+dll = DoublyLinkedList()
+dll.insert_at_beginning(20)
+dll.insert_at_beginning(10)
+dll.insert_at_end(30)
+dll.insert_at_end(40)
+
+print("List after inserting at beginning and end:")
+dll.display()
+```
+
+### Output:
+
+```
+List after inserting at beginning and end:
+10 <-> 20 <-> 30 <-> 40 <-> None
+```
+
+
+✅ **Summary:**
+
+* **Insert at beginning** → directly attach before head → **O(1)**
+* **Insert at end** → must traverse to last node → **O(n)** (unless tail pointer is used)
+
+
+## 🔧 **Doubly Linked List – Deletion & Utility Operations**
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    # ------------ INSERTS (for testing) ------------
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+        new_node.prev = curr
+
+    # ------------ DELETE OPERATIONS ------------
+    def delete_at_beginning(self):
+        if self.head is None:
+            print("List is empty, nothing to delete.")
+            return
+        removed = self.head.data
+        self.head = self.head.next
+        if self.head:  # update prev of new head
+            self.head.prev = None
+        print(f"Deleted {removed} from beginning.")
+
+    def delete_at_end(self):
+        if self.head is None:
+            print("List is empty, nothing to delete.")
+            return
+        if self.head.next is None:  # only one node
+            removed = self.head.data
+            self.head = None
+            print(f"Deleted {removed}, list is now empty.")
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        removed = curr.data
+        curr.prev.next = None
+        print(f"Deleted {removed} from end.")
+
+    def delete_by_value(self, value):
+        if self.head is None:
+            print("List is empty.")
+            return
+        curr = self.head
+        while curr and curr.data != value:
+            curr = curr.next
+        if curr is None:
+            print(f"Value {value} not found.")
+            return
+        if curr.prev:
+            curr.prev.next = curr.next
+        else:
+            self.head = curr.next  # if node is head
+        if curr.next:
+            curr.next.prev = curr.prev
+        print(f"Deleted value {value}.")
+
+    def delete_by_position(self, position):
+        if self.head is None:
+            print("List is empty.")
+            return
+        if position <= 0:
+            print("Invalid position!")
+            return
+        curr = self.head
+        count = 1
+        while curr and count < position:
+            curr = curr.next
+            count += 1
+        if curr is None:
+            print(f"Position {position} is out of range.")
+            return
+        if curr.prev:
+            curr.prev.next = curr.next
+        else:
+            self.head = curr.next
+        if curr.next:
+            curr.next.prev = curr.prev
+        print(f"Deleted node at position {position} (value {curr.data}).")
+
+    # ------------ SEARCH, LENGTH, REVERSE ------------
+    def search(self, value):
+        curr = self.head
+        pos = 1
+        while curr:
+            if curr.data == value:
+                print(f"Value {value} found at position {pos}.")
+                return pos
+            curr = curr.next
+            pos += 1
+        print(f"Value {value} not found.")
+        return -1
+
+    def length(self):
+        curr = self.head
+        count = 0
+        while curr:
+            count += 1
+            curr = curr.next
+        print(f"Length of list = {count}")
+        return count
+
+    def reverse(self):
+        curr = self.head
+        prev_node = None
+        while curr:
+            # swap next and prev
+            curr.prev, curr.next = curr.next, curr.prev
+            prev_node = curr
+            curr = curr.prev  # move "backwards" since swapped
+        self.head = prev_node
+        print("List reversed.")
+
+    # ------------ DISPLAY ------------
+    def display(self):
+        curr = self.head
+        if curr is None:
+            print("List is empty.")
+            return
+        while curr:
+            print(curr.data, end=" <-> ")
+            curr = curr.next
+        print("None")
+
+
+# ---------- DEMO CODE ----------
+dll = DoublyLinkedList()
+
+dll.append(10)
+dll.append(20)
+dll.append(30)
+dll.append(40)
+dll.append(50)
+print("Initial list:")
+dll.display()
+
+dll.delete_at_beginning()
+dll.display()
+
+dll.delete_at_end()
+dll.display()
+
+dll.delete_by_value(30)
+dll.display()
+
+dll.delete_by_position(2)  # deletes node at 2nd position (remaining list)
+dll.display()
+
+dll.search(50)  # not found
+dll.search(10)  # found
+
+dll.length()
+
+dll.reverse()
+dll.display()
+
+---
+
+## ✅ **Sample Output (When You Run the File)**
+
+```
+Initial list:
+10 <-> 20 <-> 30 <-> 40 <-> 50 <-> None
+Deleted 10 from beginning.
+20 <-> 30 <-> 40 <-> 50 <-> None
+Deleted 50 from end.
+20 <-> 30 <-> 40 <-> None
+Deleted value 30.
+20 <-> 40 <-> None
+Deleted node at position 2 (value 40).
+20 <-> None
+Value 50 not found.
+Value 10 found at position 1.
+Length of list = 1
+List reversed.
+20 <-> None
+```
+
+---
+
+## 🔑 Key Takeaways
+
+* **Delete at beginning** → just update `head` to `head.next`
+* **Delete at end** → traverse to last node, unlink it
+* **Delete by value** → search for node, then unlink
+* **Delete by position** → traverse until position, unlink node
+* **Search** → traverse until match is found
+* **Length** → simple counter while traversing
+* **Reverse** → swap `next` and `prev` of each node, then update head
+ 
