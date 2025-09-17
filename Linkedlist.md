@@ -1166,8 +1166,6 @@ class DoublyLinkedList:
             curr = curr.next
         print("None")
 
-
-# ---------- DEMO CODE ----------
 dll = DoublyLinkedList()
 
 dll.append(10)
