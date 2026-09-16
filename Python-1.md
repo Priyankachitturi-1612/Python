@@ -1,8 +1,3 @@
-Yes. Below is a **complete Python beginner course note**. I’ll explain each concept in simple language and give **10 small example programs** for the programming concepts, so you can practice them step by step.
-
-# 🐍 Python Programming – Complete Beginner Guide
-
----
 
 # 1. What is Python Programming?
 
