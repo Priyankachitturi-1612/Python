@@ -492,7 +492,7 @@ else:
 ## **1. Decision Making**
 
 Conditional statements are mainly used for **taking decisions** in a program.
-👉 Example: “If you have enough money, you can buy the product, else you cannot.”
+Example: “If you have enough money, you can buy the product, else you cannot.”
 
 **Code:**
 
@@ -547,7 +547,7 @@ else:
 print("This will always execute")
 ```
 
-💡 Here, depending on condition, one branch executes, then flow continues normally.
+
 
 **Real-life analogy:** Traffic signals control flow — “If red → stop, If green → go.”
 
@@ -626,9 +626,9 @@ Programs respond differently based on user input.
 choice = input("Enter your choice (tea/coffee): ")
 
 if choice == "tea":
-    print("Here is your tea ☕")
+    print("Here is your tea ")
 elif choice == "coffee":
-    print("Here is your coffee ☕")
+    print("Here is your coffee ")
 else:
     print("Invalid choice")
 ```
@@ -697,6 +697,767 @@ if num > 0:
         print("Positive Even")
     else:
         print("Positive Odd")
+```
+
+Sure. Below are **20 slightly difficult, practical problems** covering **`if`, `if-else`, and `elif` ladder** in Python. I’ve kept the logic suitable for teaching and interview practice, with **code + sample input/output + short logic**.
+
+---
+
+## 1. Find the Largest of Three Numbers
+
+**Problem:** Take three numbers and find the largest.
+
+```python
+a = int(input())
+b = int(input())
+c = int(input())
+
+if a >= b and a >= c:
+    largest = a
+elif b >= a and b >= c:
+    largest = b
+else:
+    largest = c
+
+print("Largest =", largest)
+```
+
+**Input:**
+
+```text
+45
+78
+62
+```
+
+**Output:**
+
+```text
+Largest = 78
+```
+
+**Logic:** Compare each number with the other two using `and`.
+
+---
+
+## 2. Find the Second Largest of Three Numbers
+
+```python
+a = int(input())
+b = int(input())
+c = int(input())
+
+if (a >= b and a <= c) or (a >= c and a <= b):
+    second = a
+elif (b >= a and b <= c) or (b >= c and b <= a):
+    second = b
+else:
+    second = c
+
+print("Second Largest =", second)
+```
+
+**Input:**
+
+```text
+25
+75
+50
+```
+
+**Output:**
+
+```text
+Second Largest = 50
+```
+
+---
+
+## 3. Check Whether a Year is a Leap Year
+
+A year is a leap year if:
+
+* divisible by 400, **or**
+* divisible by 4 but not divisible by 100.
+
+```python
+year = int(input())
+
+if year % 400 == 0:
+    print("Leap Year")
+elif year % 100 == 0:
+    print("Not a Leap Year")
+elif year % 4 == 0:
+    print("Leap Year")
+else:
+    print("Not a Leap Year")
+```
+
+**Input:**
+
+```text
+2024
+```
+
+**Output:**
+
+```text
+Leap Year
+```
+
+---
+
+## 4. Electricity Bill Calculator
+
+Rates:
+
+* First 100 units → ₹2/unit
+* 101–200 → ₹3/unit
+* 201–500 → ₹5/unit
+* Above 500 → ₹7/unit
+
+```python
+units = int(input())
+
+if units <= 100:
+    bill = units * 2
+elif units <= 200:
+    bill = 200 + (units - 100) * 3
+elif units <= 500:
+    bill = 500 + (units - 200) * 5
+else:
+    bill = 2000 + (units - 500) * 7
+
+print("Bill =", bill)
+```
+
+**Input:**
+
+```text
+350
+```
+
+**Output:**
+
+```text
+Bill = 1250
+```
+
+---
+
+## 5. Student Grade Calculator
+
+```python
+marks = int(input())
+
+if marks >= 90:
+    grade = "A+"
+elif marks >= 80:
+    grade = "A"
+elif marks >= 70:
+    grade = "B"
+elif marks >= 60:
+    grade = "C"
+elif marks >= 50:
+    grade = "D"
+else:
+    grade = "F"
+
+print("Grade =", grade)
+```
+
+**Input:**
+
+```text
+84
+```
+
+**Output:**
+
+```text
+Grade = A
+```
+
+---
+
+## 6. Salary Tax Calculator
+
+```python
+salary = float(input())
+
+if salary <= 250000:
+    tax = 0
+elif salary <= 500000:
+    tax = (salary - 250000) * 0.05
+elif salary <= 1000000:
+    tax = 12500 + (salary - 500000) * 0.20
+else:
+    tax = 112500 + (salary - 1000000) * 0.30
+
+print(f"Tax = ₹{tax:.2f}")
+```
+
+**Input:**
+
+```text
+800000
+```
+
+**Output:**
+
+```text
+Tax = ₹72500.00
+```
+
+---
+
+## 7. Triangle Validity and Type
+
+Take three sides and determine whether they form a triangle. If valid, identify:
+
+* Equilateral
+* Isosceles
+* Scalene
+
+```python
+a = int(input())
+b = int(input())
+c = int(input())
+
+if a + b <= c or a + c <= b or b + c <= a:
+    print("Invalid Triangle")
+elif a == b and b == c:
+    print("Equilateral Triangle")
+elif a == b or b == c or a == c:
+    print("Isosceles Triangle")
+else:
+    print("Scalene Triangle")
+```
+
+**Input:**
+
+```text
+5
+5
+8
+```
+
+**Output:**
+
+```text
+Isosceles Triangle
+```
+
+---
+
+## 8. Check Character Type
+
+Determine whether the entered character is:
+
+* Uppercase
+* Lowercase
+* Digit
+* Special character
+
+```python
+ch = input()
+
+if ch >= 'A' and ch <= 'Z':
+    print("Uppercase")
+elif ch >= 'a' and ch <= 'z':
+    print("Lowercase")
+elif ch >= '0' and ch <= '9':
+    print("Digit")
+else:
+    print("Special Character")
+```
+
+**Input:**
+
+```text
+G
+```
+
+**Output:**
+
+```text
+Uppercase
+```
+
+---
+
+## 9. ATM Withdrawal
+
+Rules:
+
+* PIN must be `1234`
+* Balance must be sufficient
+* Withdrawal must be a multiple of 100
+* Minimum withdrawal ₹100
+
+```python
+pin = int(input())
+balance = float(input())
+amount = float(input())
+
+if pin != 1234:
+    print("Invalid PIN")
+elif amount < 100:
+    print("Minimum withdrawal is ₹100")
+elif amount % 100 != 0:
+    print("Amount must be a multiple of 100")
+elif amount > balance:
+    print("Insufficient Balance")
+else:
+    balance = balance - amount
+    print(f"Withdrawal Successful")
+    print(f"Remaining Balance = ₹{balance:.2f}")
+```
+
+**Input:**
+
+```text
+1234
+10000
+2500
+```
+
+**Output:**
+
+```text
+Withdrawal Successful
+Remaining Balance = ₹7500.00
+```
+
+---
+
+## 10. Movie Ticket Price
+
+Age-based ticket pricing:
+
+* Below 5 → Free
+* 5–12 → ₹100
+* 13–59 → ₹200
+* 60 and above → ₹120
+
+```python
+age = int(input())
+
+if age < 5:
+    price = 0
+elif age <= 12:
+    price = 100
+elif age <= 59:
+    price = 200
+else:
+    price = 120
+
+print("Ticket Price =", price)
+```
+
+**Input:**
+
+```text
+65
+```
+
+**Output:**
+
+```text
+Ticket Price = 120
+```
+
+---
+
+## 11. Find Quadrant of a Point
+
+Given `(x, y)`, determine the quadrant.
+
+```python
+x = int(input())
+y = int(input())
+
+if x > 0 and y > 0:
+    print("First Quadrant")
+elif x < 0 and y > 0:
+    print("Second Quadrant")
+elif x < 0 and y < 0:
+    print("Third Quadrant")
+elif x > 0 and y < 0:
+    print("Fourth Quadrant")
+elif x == 0 and y == 0:
+    print("Origin")
+else:
+    print("Point lies on an Axis")
+```
+
+**Input:**
+
+```text
+-5
+8
+```
+
+**Output:**
+
+```text
+Second Quadrant
+```
+
+---
+
+## 12. Online Shopping Discount
+
+Discount:
+
+* ₹5000 or more → 20%
+* ₹3000–₹4999 → 15%
+* ₹1000–₹2999 → 10%
+* Below ₹1000 → No discount
+
+```python
+amount = float(input())
+
+if amount >= 5000:
+    discount = amount * 0.20
+elif amount >= 3000:
+    discount = amount * 0.15
+elif amount >= 1000:
+    discount = amount * 0.10
+else:
+    discount = 0
+
+final_amount = amount - discount
+
+print(f"Discount = ₹{discount:.2f}")
+print(f"Final Amount = ₹{final_amount:.2f}")
+```
+
+**Input:**
+
+```text
+4500
+```
+
+**Output:**
+
+```text
+Discount = ₹675.00
+Final Amount = ₹3825.00
+```
+
+---
+
+## 13. Profit, Loss or No Profit No Loss
+
+```python
+cost_price = float(input())
+selling_price = float(input())
+
+if selling_price > cost_price:
+    profit = selling_price - cost_price
+    print(f"Profit = ₹{profit:.2f}")
+elif cost_price > selling_price:
+    loss = cost_price - selling_price
+    print(f"Loss = ₹{loss:.2f}")
+else:
+    print("No Profit No Loss")
+```
+
+**Input:**
+
+```text
+5000
+5750
+```
+
+**Output:**
+
+```text
+Profit = ₹750.00
+```
+
+---
+
+## 14. BMI Calculator
+
+```python
+weight = float(input())
+height = float(input())
+
+bmi = weight / (height ** 2)
+
+if bmi < 18.5:
+    result = "Underweight"
+elif bmi < 25:
+    result = "Normal"
+elif bmi < 30:
+    result = "Overweight"
+else:
+    result = "Obese"
+
+print(f"BMI = {bmi:.2f}")
+print("Category =", result)
+```
+
+**Input:**
+
+```text
+70
+1.75
+```
+
+**Output:**
+
+```text
+BMI = 22.86
+Category = Normal
+```
+
+---
+
+## 15. Parking Fee Calculator
+
+* Up to 2 hours → ₹30
+* 3–5 hours → ₹50
+* 6–10 hours → ₹100
+* Above 10 hours → ₹150
+
+```python
+hours = int(input())
+
+if hours <= 2:
+    fee = 30
+elif hours <= 5:
+    fee = 50
+elif hours <= 10:
+    fee = 100
+else:
+    fee = 150
+
+print("Parking Fee =", fee)
+```
+
+**Input:**
+
+```text
+7
+```
+
+**Output:**
+
+```text
+Parking Fee = 100
+```
+
+---
+
+## 16. Find Nature of a Quadratic Equation
+
+For:
+
+`ax² + bx + c = 0`
+
+Discriminant:
+
+`D = b² - 4ac`
+
+```python
+a = int(input())
+b = int(input())
+c = int(input())
+
+d = b ** 2 - 4 * a * c
+
+if d > 0:
+    print("Two Distinct Real Roots")
+elif d == 0:
+    print("Two Equal Real Roots")
+else:
+    print("No Real Roots")
+```
+
+**Input:**
+
+```text
+1
+-5
+6
+```
+
+**Output:**
+
+```text
+Two Distinct Real Roots
+```
+
+---
+
+## 17. Valid Date Check
+
+Check whether a given day, month and year form a valid date.
+
+```python
+day = int(input())
+month = int(input())
+year = int(input())
+
+if month < 1 or month > 12:
+    print("Invalid Date")
+elif month == 2:
+    if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
+        if day >= 1 and day <= 29:
+            print("Valid Date")
+        else:
+            print("Invalid Date")
+    elif day >= 1 and day <= 28:
+        print("Valid Date")
+    else:
+        print("Invalid Date")
+elif month == 4 or month == 6 or month == 9 or month == 11:
+    if day >= 1 and day <= 30:
+        print("Valid Date")
+    else:
+        print("Invalid Date")
+elif day >= 1 and day <= 31:
+    print("Valid Date")
+else:
+    print("Invalid Date")
+```
+
+**Input:**
+
+```text
+29
+2
+2024
+```
+
+**Output:**
+
+```text
+Valid Date
+```
+
+---
+
+## 18. Employee Bonus Calculator
+
+Rules:
+
+* Experience < 1 year → No bonus
+* 1–3 years → 5%
+* 4–6 years → 10%
+* More than 6 years → 15%
+
+```python
+salary = float(input())
+experience = int(input())
+
+if experience < 1:
+    bonus = 0
+elif experience <= 3:
+    bonus = salary * 0.05
+elif experience <= 6:
+    bonus = salary * 0.10
+else:
+    bonus = salary * 0.15
+
+final_salary = salary + bonus
+
+print(f"Bonus = ₹{bonus:.2f}")
+print(f"Final Salary = ₹{final_salary:.2f}")
+```
+
+**Input:**
+
+```text
+40000
+5
+```
+
+**Output:**
+
+```text
+Bonus = ₹4000.00
+Final Salary = ₹44000.00
+```
+
+---
+
+## 19. Admission Eligibility
+
+A student is eligible if:
+
+* Maths ≥ 60
+* Physics ≥ 50
+* Chemistry ≥ 50
+* Total ≥ 180
+
+```python
+maths = int(input())
+physics = int(input())
+chemistry = int(input())
+
+total = maths + physics + chemistry
+
+if maths >= 60 and physics >= 50 and chemistry >= 50 and total >= 180:
+    print("Eligible for Admission")
+else:
+    print("Not Eligible for Admission")
+```
+
+**Input:**
+
+```text
+75
+60
+55
+```
+
+**Output:**
+
+```text
+Eligible for Admission
+```
+
+---
+
+## 20. Loan Eligibility — Multiple Conditions
+
+A person is eligible for a loan based on:
+
+* Age between 21 and 60
+* Salary ≥ ₹25,000
+* Credit score ≥ 700
+
+```python
+age = int(input())
+salary = float(input())
+credit_score = int(input())
+
+if age < 21 or age > 60:
+    print("Not Eligible: Age Criteria Failed")
+elif salary < 25000:
+    print("Not Eligible: Salary Criteria Failed")
+elif credit_score < 700:
+    print("Not Eligible: Credit Score Criteria Failed")
+else:
+    print("Eligible for Loan")
+```
+
+**Input:**
+
+```text
+28
+45000
+750
+```
+
+**Output:**
+
+```text
+Eligible for Loan
 ```
 
 
