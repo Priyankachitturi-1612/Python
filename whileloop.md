@@ -518,6 +518,8 @@ Input
 Output
 
 Maximum Difference = 7
+
+```
 num = int(input())
 
 previous = num % 10
@@ -540,7 +542,7 @@ while num > 0:
     num //= 10
 
 print("Maximum Difference =", maximum)
-
+```
 
 ##  14 Check Whether Digits Are in Increasing Order
 
@@ -551,6 +553,8 @@ Input
 Output
 
 Increasing Order
+
+```
 num = int(input())
 
 previous = num % 10
@@ -573,12 +577,13 @@ if increasing:
 else:
     print("Not Increasing")
 
-
+```
  
  ## 15 Find average of even digits
 
 Input: 5839267
 
+```
 n = int(input("Enter number: "))
 
 temp = n
@@ -602,7 +607,7 @@ else:
 print("Sum =", total)
 print("Count =", count)
 print("Average =", average)
-
+```
 Output:
 
 Enter number: 5839267
@@ -616,6 +621,7 @@ Average = 6.666666666666667
 
 Input: 5839267
 
+```
 n = int(input("Enter number: "))
 
 temp = n
@@ -635,7 +641,7 @@ while temp > 0:
 
 print("Smallest Digit =", smallest)
 print("Second Smallest Digit =", second_smallest)
-
+```
 Output:
 
 Enter number: 5839267
@@ -656,6 +662,7 @@ Input:
 12
 14
 n = int(input("Enter number of elements: "))
+```
 
 num = int(input("Enter number: "))
 
@@ -678,7 +685,7 @@ while i < n:
         num = int(input("Enter number: "))
 
 print("Longest Even Sequence =", longest)
-
+```
 Output:
 
 Enter number of elements: 8
@@ -706,6 +713,8 @@ Input:
 -1
 6
 10
+
+```
 n = int(input("Enter number of elements: "))
 
 num = int(input("Enter number: "))
@@ -729,6 +738,7 @@ while i < n:
         num = int(input("Enter number: "))
 
 print("Longest Positive Sequence =", longest)
+```
 
 Output:
 
@@ -756,6 +766,8 @@ Input:
 456
 789
 235
+
+```
 n = int(input("How many numbers: "))
 
 i = 0
@@ -781,6 +793,7 @@ while i < n:
 
 print("Number =", largest_number)
 print("Digit Sum =", largest_sum)
+```
 
 Output:
 
