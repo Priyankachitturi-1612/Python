@@ -142,8 +142,7 @@ Apart from methods, some **Python built-in functions** also work on lists:
 * `list(range(5))` → create list `[0,1,2,3,4]`
 
 ---
-
-✨ Quick Example Using Many Functions Together:
+ Quick Example Using Many Functions Together:
 
 ```python
 nums = [10, 5, 8, 5, 20]
@@ -220,11 +219,13 @@ for n in nums:
         smallest = n
 print("Largest:", largest, "Smallest:", smallest)
 ```
-Definition & basic syntax
+## Definition &  syntax of List comprehension
 
 A list comprehension builds a new list from an iterable using a compact single-line syntax
-
+```
 [ expression for item in iterable if condition]
+```
+
 expression → what goes into the new list (can be an expression or a function call).
 
 for item in iterable → iterates source items.
