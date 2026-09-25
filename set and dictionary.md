@@ -605,12 +605,7 @@ empty = {}
 print(type(empty))  # <class 'dict'>
 ```
 
-✅ Key points:
 
-* Keys must be **immutable**: string, number, tuple (not list or dict)
-* Values can be **any type**: int, string, list, tuple, another dict
-
----
 
 # 🔹 Dictionary Operations
 
@@ -682,15 +677,11 @@ print(student)
 * **Values can be anything** → int, string, list, tuple, dict, etc.
 * Useful for **storing structured data** like JSON
 
----
-Perfect Priya 🌸! Let’s do it step by step.
-Here are **5 example programs on dictionaries**, each shown with **different approaches** (loops, comprehensions, methods).
 
----
 
 # **1️⃣ Create a dictionary from user input**
 
-👉 Input: `name Priya age 22 city Hyderabad`
+ Input: `name Priya age 22 city Hyderabad`
 
 ```python
 # Approach 1: Using split and loop
@@ -710,8 +701,8 @@ print("Dictionary:", d)
 
 # **2️⃣ Count frequency of words**
 
-👉 Input: `"apple banana apple mango banana apple"`
-👉 Output: `{'apple': 3, 'banana': 2, 'mango': 1}`
+Input: `"apple banana apple mango banana apple"`
+Output: `{'apple': 3, 'banana': 2, 'mango': 1}`
 
 ```python
 # Approach 1: Using loop
@@ -801,11 +792,783 @@ print(filtered2)
 
 ---
 
-✨ These 5 examples cover:
+ These 5 examples cover:
 
 1. Creating dictionaries
 2. Counting frequencies
 3. Swapping keys/values
 4. Merging dictionaries
 5. Filtering dictionaries
+Absolutely. Here is a **basic → intermediate → hard** progression of **Python Dictionary problems**, suitable for teaching and student practice. I’ve included **30 problems**, with code and output.
+
+## 🟢 Basic Level — 1 to 10
+
+### 1. Create and print a dictionary
+
+```python
+student = {
+    "name": "Priya",
+    "age": 21,
+    "course": "Python"
+}
+
+print(student)
+```
+
+**Output:**
+
+```text
+{'name': 'Priya', 'age': 21, 'course': 'Python'}
+```
+
+---
+
+### 2. Access a value using a key
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22,
+    "course": "Java"
+}
+
+print(student["name"])
+print(student["course"])
+```
+
+**Output:**
+
+```text
+Rahul
+Java
+```
+
+---
+
+### 3. Add a new key-value pair
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22
+}
+
+student["city"] = "Hyderabad"
+
+print(student)
+```
+
+**Output:**
+
+```text
+{'name': 'Rahul', 'age': 22, 'city': 'Hyderabad'}
+```
+
+---
+
+### 4. Update an existing value
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 21
+}
+
+student["age"] = 22
+
+print(student)
+```
+
+**Output:**
+
+```text
+{'name': 'Rahul', 'age': 22}
+```
+
+---
+
+### 5. Delete a key
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22,
+    "city": "Chennai"
+}
+
+del student["city"]
+
+print(student)
+```
+
+**Output:**
+
+```text
+{'name': 'Rahul', 'age': 22}
+```
+
+---
+
+### 6. Check whether a key exists
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22,
+    "course": "Python"
+}
+
+key = "course"
+
+if key in student:
+    print("Key exists")
+else:
+    print("Key does not exist")
+```
+
+**Output:**
+
+```text
+Key exists
+```
+
+---
+
+### 7. Print all keys
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22,
+    "course": "Python"
+}
+
+for key in student:
+    print(key)
+```
+
+**Output:**
+
+```text
+name
+age
+course
+```
+
+---
+
+### 8. Print all values
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22,
+    "course": "Python"
+}
+
+for value in student.values():
+    print(value)
+```
+
+**Output:**
+
+```text
+Rahul
+22
+Python
+```
+
+---
+
+### 9. Print key and value together
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22,
+    "course": "Python"
+}
+
+for key, value in student.items():
+    print(key, ":", value)
+```
+
+**Output:**
+
+```text
+name : Rahul
+age : 22
+course : Python
+```
+
+---
+
+### 10. Find the number of elements
+
+```python
+student = {
+    "name": "Rahul",
+    "age": 22,
+    "course": "Python",
+    "city": "Hyderabad"
+}
+
+print("Number of elements:", len(student))
+```
+
+**Output:**
+
+```text
+Number of elements: 4
+```
+
+---
+
+# 🟡 Intermediate Level — 11 to 20
+
+### 11. Count frequency of characters
+
+```python
+text = "banana"
+
+frequency = {}
+
+for ch in text:
+    if ch in frequency:
+        frequency[ch] += 1
+    else:
+        frequency[ch] = 1
+
+print(frequency)
+```
+
+**Output:**
+
+```text
+{'b': 1, 'a': 3, 'n': 2}
+```
+
+---
+
+### 12. Count frequency of words
+
+```python
+words = ["python", "java", "python", "c", "java", "python"]
+
+frequency = {}
+
+for word in words:
+    if word in frequency:
+        frequency[word] += 1
+    else:
+        frequency[word] = 1
+
+print(frequency)
+```
+
+**Output:**
+
+```text
+{'python': 3, 'java': 2, 'c': 1}
+```
+
+---
+
+### 13. Find the student with highest marks
+
+```python
+marks = {
+    "Rahul": 85,
+    "Priya": 92,
+    "Arun": 78,
+    "Sneha": 88
+}
+
+highest = max(marks, key=marks.get)
+
+print("Highest:", highest)
+print("Marks:", marks[highest])
+```
+
+**Output:**
+
+```text
+Highest: Priya
+Marks: 92
+```
+
+---
+
+### 14. Find the student with lowest marks
+
+```python
+marks = {
+    "Rahul": 85,
+    "Priya": 92,
+    "Arun": 78,
+    "Sneha": 88
+}
+
+lowest = min(marks, key=marks.get)
+
+print("Lowest:", lowest)
+print("Marks:", marks[lowest])
+```
+
+**Output:**
+
+```text
+Lowest: Arun
+Marks: 78
+```
+
+---
+
+### 15. Calculate total and average marks
+
+```python
+marks = {
+    "Math": 85,
+    "Python": 90,
+    "Java": 80,
+    "SQL": 95
+}
+
+total = sum(marks.values())
+average = total / len(marks)
+
+print("Total:", total)
+print("Average:", average)
+```
+
+**Output:**
+
+```text
+Total: 350
+Average: 87.5
+```
+
+---
+
+### 16. Separate even and odd values
+
+```python
+numbers = {
+    "a": 10,
+    "b": 15,
+    "c": 20,
+    "d": 25,
+    "e": 30
+}
+
+even = {}
+odd = {}
+
+for key, value in numbers.items():
+    if value % 2 == 0:
+        even[key] = value
+    else:
+        odd[key] = value
+
+print("Even:", even)
+print("Odd:", odd)
+```
+
+**Output:**
+
+```text
+Even: {'a': 10, 'c': 20, 'e': 30}
+Odd: {'b': 15, 'd': 25}
+```
+
+---
+
+### 17. Create a dictionary from two lists
+
+```python
+keys = ["name", "age", "city"]
+values = ["Priya", 22, "Rajahmundry"]
+
+student = dict(zip(keys, values))
+
+print(student)
+```
+
+**Output:**
+
+```text
+{'name': 'Priya', 'age': 22, 'city': 'Rajahmundry'}
+```
+
+---
+
+### 18. Reverse keys and values
+
+```python
+data = {
+    "a": 1,
+    "b": 2,
+    "c": 3
+}
+
+result = {}
+
+for key, value in data.items():
+    result[value] = key
+
+print(result)
+```
+
+**Output:**
+
+```text
+{1: 'a', 2: 'b', 3: 'c'}
+```
+
+---
+
+### 19. Merge two dictionaries
+
+```python
+a = {
+    "name": "Priya",
+    "age": 22
+}
+
+b = {
+    "city": "Rajahmundry",
+    "course": "Python"
+}
+
+result = {**a, **b}
+
+print(result)
+```
+
+**Output:**
+
+```text
+{'name': 'Priya', 'age': 22, 'city': 'Rajahmundry', 'course': 'Python'}
+```
+
+---
+
+### 20. Find common keys
+
+```python
+a = {
+    "name": "Priya",
+    "age": 22,
+    "city": "Hyderabad"
+}
+
+b = {
+    "age": 25,
+    "city": "Chennai",
+    "course": "Python"
+}
+
+common = a.keys() & b.keys()
+
+print(common)
+```
+
+**Output:**
+
+```text
+{'age', 'city'}
+```
+
+---
+
+# 🔴 Hard Level — 21 to 30
+
+### 21. Find the second highest value
+
+```python
+marks = {
+    "Rahul": 85,
+    "Priya": 95,
+    "Arun": 78,
+    "Sneha": 90
+}
+
+values = sorted(set(marks.values()), reverse=True)
+
+second_highest = values[1]
+
+for name, mark in marks.items():
+    if mark == second_highest:
+        print("Second highest:", name)
+        print("Marks:", mark)
+```
+
+**Output:**
+
+```text
+Second highest: Sneha
+Marks: 90
+```
+
+---
+
+### 22. Find students who scored above average
+
+```python
+marks = {
+    "Rahul": 80,
+    "Priya": 95,
+    "Arun": 70,
+    "Sneha": 90,
+    "Kiran": 65
+}
+
+average = sum(marks.values()) / len(marks)
+
+result = {}
+
+for name, mark in marks.items():
+    if mark > average:
+        result[name] = mark
+
+print("Average:", average)
+print("Above average:", result)
+```
+
+**Output:**
+
+```text
+Average: 80.0
+Above average: {'Priya': 95, 'Sneha': 90}
+```
+
+---
+
+### 23. Find duplicate values
+
+```python
+data = {
+    "a": 10,
+    "b": 20,
+    "c": 10,
+    "d": 30,
+    "e": 20
+}
+
+frequency = {}
+
+for value in data.values():
+    frequency[value] = frequency.get(value, 0) + 1
+
+duplicates = {}
+
+for value, count in frequency.items():
+    if count > 1:
+        duplicates[value] = count
+
+print(duplicates)
+```
+
+**Output:**
+
+```text
+{10: 2, 20: 2}
+```
+
+---
+
+### 24. Group words according to their length
+
+```python
+words = ["cat", "dog", "apple", "bat", "banana", "sun"]
+
+result = {}
+
+for word in words:
+    length = len(word)
+
+    if length not in result:
+        result[length] = []
+
+    result[length].append(word)
+
+print(result)
+```
+
+**Output:**
+
+```text
+{3: ['cat', 'dog', 'bat', 'sun'], 5: ['apple'], 6: ['banana']}
+```
+
+---
+
+### 25. Find the first non-repeating character
+
+```python
+text = "swiss"
+
+frequency = {}
+
+for ch in text:
+    frequency[ch] = frequency.get(ch, 0) + 1
+
+for ch in text:
+    if frequency[ch] == 1:
+        print("First non-repeating character:", ch)
+        break
+```
+
+**Output:**
+
+```text
+First non-repeating character: w
+```
+
+---
+
+### 26. Find the first repeating character
+
+```python
+text = "programming"
+
+frequency = {}
+
+for ch in text:
+    frequency[ch] = frequency.get(ch, 0) + 1
+
+for ch in text:
+    if frequency[ch] > 1:
+        print("First repeating character:", ch)
+        break
+```
+
+**Output:**
+
+```text
+First repeating character: r
+```
+
+---
+
+### 27. Sort dictionary based on values
+
+```python
+marks = {
+    "Rahul": 75,
+    "Priya": 95,
+    "Arun": 85,
+    "Sneha": 90
+}
+
+result = dict(sorted(marks.items(), key=lambda x: x[1], reverse=True))
+
+print(result)
+```
+
+**Output:**
+
+```text
+{'Priya': 95, 'Sneha': 90, 'Arun': 85, 'Rahul': 75}
+```
+
+---
+
+### 28. Create a nested dictionary
+
+```python
+students = {
+    "student1": {
+        "name": "Priya",
+        "marks": 90
+    },
+    "student2": {
+        "name": "Rahul",
+        "marks": 85
+    }
+}
+
+for key, value in students.items():
+    print(key)
+    print("Name:", value["name"])
+    print("Marks:", value["marks"])
+```
+
+**Output:**
+
+```text
+student1
+Name: Priya
+Marks: 90
+student2
+Name: Rahul
+Marks: 85
+```
+
+---
+
+### 29. Find the subject with highest marks for each student
+
+```python
+students = {
+    "Priya": {
+        "Python": 95,
+        "Java": 88,
+        "SQL": 92
+    },
+    "Rahul": {
+        "Python": 85,
+        "Java": 90,
+        "SQL": 80
+    }
+}
+
+for student, subjects in students.items():
+    highest = max(subjects, key=subjects.get)
+    print(student, ":", highest, subjects[highest])
+```
+
+**Output:**
+
+```text
+Priya : Python 95
+Rahul : Java 90
+```
+
+---
+
+### 30. Count frequency of each word and find the most frequent word
+
+```python
+sentence = "python java python c java python c python"
+
+words = sentence.split()
+
+frequency = {}
+
+for word in words:
+    frequency[word] = frequency.get(word, 0) + 1
+
+most_frequent = max(frequency, key=frequency.get)
+
+print("Frequency:", frequency)
+print("Most frequent:", most_frequent)
+print("Count:", frequency[most_frequent])
+```
+
+**Output:**
+
+```text
+Frequency: {'python': 4, 'java': 2, 'c': 2}
+Most frequent: python
+Count: 4
+```
+
+### Difficulty progression
+
+**Basic:** Dictionary creation → access → add/update/delete → traversal → `keys()`, `values()`, `items()`
+
+**Intermediate:** Frequency counting → aggregation → filtering → merging → common keys → creating dictionaries
+
+**Hard:** Nested dictionaries → duplicate values → ranking → grouping → frequency analysis → `lambda` → dictionary comprehension → multi-level data.
 
