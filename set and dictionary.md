@@ -232,9 +232,348 @@ print("Common elements (loop):", common3)
 4. Filtering elements
 5. Finding common elements
 
-Absolutely Priya 🌸! Let’s go **step by step** to understand **Python dictionaries**, their **methods**, and **operations**.
+
+### 1. Find common elements in three sets
+
+```python
+a = {10, 20, 30, 40, 50, 60}
+b = {20, 30, 50, 70, 80}
+c = {30, 40, 50, 90}
+
+common = a & b & c
+
+print("Common elements:", common)
+```
+
+**Output:**
+
+```text
+Common elements: {50}
+```
 
 ---
+
+### 2. Find elements present in exactly one set
+
+```python
+a = {1, 2, 3, 4, 5}
+b = {4, 5, 6, 7}
+c = {7, 8, 9, 1}
+
+result = a ^ b ^ c
+
+print("Elements:", result)
+```
+
+**Output:**
+
+```text
+Elements: {2, 3, 6, 8, 9}
+```
+
+---
+
+### 3. Find elements that occur in exactly two sets
+
+```python
+a = {1, 2, 3, 4, 5}
+b = {3, 4, 5, 6}
+c = {4, 5, 7, 8}
+
+result = (a & b) | (b & c) | (a & c)
+result -= a & b & c
+
+print("Elements:", result)
+```
+
+**Output:**
+
+```text
+Elements: {3}
+```
+
+---
+
+### 4. Find elements unique to each set
+
+```python
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+c = {4, 5, 7, 8}
+
+only_a = a - b - c
+only_b = b - a - c
+only_c = c - a - b
+
+print("Only A:", only_a)
+print("Only B:", only_b)
+print("Only C:", only_c)
+```
+
+**Output:**
+
+```text
+Only A: {1, 2}
+Only B: {6}
+Only C: {7, 8}
+```
+
+---
+
+### 5. Find missing numbers from a range
+
+```python
+numbers = {1, 2, 4, 6, 7, 10, 12}
+
+start = 1
+end = 12
+
+complete = set(range(start, end + 1))
+
+missing = complete - numbers
+
+print("Missing numbers:", missing)
+```
+
+**Output:**
+
+```text
+Missing numbers: {3, 5, 8, 9, 11}
+```
+
+---
+
+### 6. Find duplicate elements in a list using sets
+
+```python
+numbers = [10, 20, 30, 20, 40, 50, 30, 60, 10, 70]
+
+seen = set()
+duplicates = set()
+
+for n in numbers:
+    if n in seen:
+        duplicates.add(n)
+    else:
+        seen.add(n)
+
+print("Duplicates:", duplicates)
+```
+
+**Output:**
+
+```text
+Duplicates: {10, 20, 30}
+```
+
+---
+
+### 7. Find elements occurring an odd number of times
+
+```python
+numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5]
+
+unique = set(numbers)
+result = set()
+
+for n in unique:
+    if numbers.count(n) % 2 != 0:
+        result.add(n)
+
+print("Odd frequency elements:", result)
+```
+
+**Output:**
+
+```text
+Odd frequency elements: {1, 3, 5}
+```
+
+---
+
+### 8. Check whether two sets are disjoint
+
+```python
+a = {10, 20, 30, 40}
+b = {50, 60, 70}
+
+if a.isdisjoint(b):
+    print("Sets are disjoint")
+else:
+    print("Sets are not disjoint")
+```
+
+**Output:**
+
+```text
+Sets are disjoint
+```
+
+---
+
+### 9. Find common students between three classes
+
+```python
+python = {"A", "B", "C", "D", "E"}
+java = {"B", "C", "D", "F"}
+web = {"C", "D", "G", "H"}
+
+common = python & java & web
+
+print("Students in all three classes:", common)
+```
+
+**Output:**
+
+```text
+Students in all three classes: {'C', 'D'}
+```
+
+---
+
+### 10. Find students who know Python but not Java
+
+```python
+python = {"A", "B", "C", "D", "E", "F"}
+java = {"C", "D", "E"}
+web = {"A", "E", "G"}
+
+result = python - java
+
+print("Python only:", result)
+```
+
+**Output:**
+
+```text
+Python only: {'A', 'B', 'F'}
+```
+
+---
+
+### 11. Check subset and superset relationship
+
+```python
+employees = {"Java", "Python", "C", "SQL", "HTML", "CSS"}
+
+required = {"Java", "Python", "SQL"}
+
+if required.issubset(employees):
+    print("All required skills are available")
+
+if employees.issuperset(required):
+    print("Employees set is a superset")
+```
+
+**Output:**
+
+```text
+All required skills are available
+Employees set is a superset
+```
+
+---
+
+### 12. Find common digits between two numbers
+
+```python
+n1 = 123456789
+n2 = 567890
+
+set1 = set(str(n1))
+set2 = set(str(n2))
+
+common = set1 & set2
+
+print("Common digits:", common)
+```
+
+**Output:**
+
+```text
+Common digits: {'5', '6', '7', '8', '9'}
+```
+
+---
+
+### 13. Find vowels present in a sentence
+
+```python
+sentence = "Python programming is powerful"
+
+vowels = set("aeiou")
+
+present = set(sentence.lower()) & vowels
+
+print("Vowels present:", present)
+```
+
+**Output:**
+
+```text
+Vowels present: {'a', 'e', 'i', 'o'}
+```
+
+---
+
+### 14. Find words appearing in both sentences
+
+```python
+sentence1 = "python java programming database"
+sentence2 = "java python web development database"
+
+words1 = set(sentence1.split())
+words2 = set(sentence2.split())
+
+common = words1 & words2
+
+print("Common words:", common)
+```
+
+**Output:**
+
+```text
+Common words: {'python', 'java', 'database'}
+```
+
+---
+
+### 15. Find numbers that satisfy multiple conditions using set comprehension
+
+**Problem:** From 1 to 100, find numbers that are divisible by 3 or 5 but **not divisible by both**.
+
+```python
+numbers = set(range(1, 101))
+
+divisible_by_3 = {n for n in numbers if n % 3 == 0}
+divisible_by_5 = {n for n in numbers if n % 5 == 0}
+
+result = divisible_by_3 ^ divisible_by_5
+
+print("Numbers:", sorted(result))
+```
+
+**Output:**
+
+```text
+Numbers: [3, 5, 6, 9, 10, 12, 18, 20, 21, 24, 25, 27, 33, 35, 36, 39, 40, 42, 48, 50, 51, 54, 55, 57, 63, 65, 66, 69, 70, 72, 75, 78, 80, 81, 84, 85, 87, 90, 95, 96, 99, 100]
+```
+
+### Important set concepts covered
+
+| Concept                    | Problems            |   |
+| -------------------------- | ------------------- | - |
+| `&` Intersection           | 1, 3, 9, 12, 13, 14 |   |
+| `                          | ` Union             | 3 |
+| `-` Difference             | 4, 5, 10            |   |
+| `^` Symmetric Difference   | 2, 15               |   |
+| `issubset()`               | 11                  |   |
+| `issuperset()`             | 11                  |   |
+| `isdisjoint()`             | 8                   |   |
+| Set comprehension          | 15                  |   |
+| Duplicate detection        | 6, 7                |   |
+| `set()` with strings/lists | 6, 12, 13, 14       |   |
+
 
 # 🔹 What is a **Dictionary**?
 
