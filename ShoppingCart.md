@@ -1,3 +1,4 @@
+```
 catalogue = {
     "P001": {"name": "Notebook", "price": 45, "category": "Stationery"},
     "P002": {"name": "Pen", "price": 10, "category": "Stationery"},
@@ -140,3 +141,7 @@ while True:
 
     else:
         print("Invalid choice.")
+
+
+
+```
